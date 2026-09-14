@@ -23,36 +23,34 @@ const About = () => {
           <div className="terminal-header-text">harsh@cyber-os:~/bio$ cat identity.txt</div>
           <div className="about-text">
             <p className="typing-effect">
-              {'>'} Aspiring Computer Science Engineer with a strong foundation in cybersecurity and proficiency in various programming languages.
-              Eager to leverage technical skills and analytical abilities in a dynamic environment, contributing to innovative projects that drive technological advancement.
+              {'>'} B.Tech CSE student at DKTE with a deep interest in cybersecurity, VAPT, and technology-driven systems. Focused on developing strong technical fundamentals while building projects that solve practical security problems.
             </p>
             <p>
-              {'>'} Committed to continuous learning and professional growth, with a passion for tackling complex challenges and developing effective solutions.
-              Prepared to collaborate with diverse teams to create impactful software and enhance security measures.
+              {'>'} Alongside engineering, I write fiction — which has trained me to think structurally, analyze human behavior, and build layered narratives. That same analytical thinking drives how I approach security challenges, threat modeling, and system architecture.
             </p>
 
             <div className="about-stats cyber-grid">
               <div className="stat-card">
-                <span className="stat-num" style={{ color: '#00fff9' }}>1+</span>
-                <span className="stat-label">Years Exp.</span>
-                <div className="stat-bar"><div className="stat-fill" style={{ width: '20%', background: '#00fff9', boxShadow: '0 0 10px #00fff9' }}></div></div>
+                <span className="stat-num" style={{ color: '#00fff9' }}>2</span>
+                <span className="stat-label">Internships / Roles</span>
+                <div className="stat-bar"><div className="stat-fill" style={{ width: '50%', background: '#00fff9', boxShadow: '0 0 10px #00fff9' }}></div></div>
               </div>
               <div className="stat-card">
-                <span className="stat-num" style={{ color: '#fbff00' }}>4+</span>
+                <span className="stat-num" style={{ color: '#fbff00' }}>14+</span>
                 <span className="stat-label">Projects</span>
-                <div className="stat-bar"><div className="stat-fill" style={{ width: '60%', background: '#fbff00', boxShadow: '0 0 10px #fbff00' }}></div></div>
+                <div className="stat-bar"><div className="stat-fill" style={{ width: '90%', background: '#fbff00', boxShadow: '0 0 10px #fbff00' }}></div></div>
               </div>
               <div className="stat-card">
-                <span className="stat-num" style={{ color: '#ff00c1' }}>3+</span>
+                <span className="stat-num" style={{ color: '#ff00c1' }}>16+</span>
                 <span className="stat-label">Certifications</span>
-                <div className="stat-bar"><div className="stat-fill" style={{ width: '45%', background: '#ff00c1', boxShadow: '0 0 10px #ff00c1' }}></div></div>
+                <div className="stat-bar"><div className="stat-fill" style={{ width: '95%', background: '#ff00c1', boxShadow: '0 0 10px #ff00c1' }}></div></div>
               </div>
             </div>
 
             <div className="about-extra">
               <div className="extra-item">
                 <h5 className="cyber-label">/interests</h5>
-                <p>Swimming, Playing Football, International Author</p>
+                <p>Published Author (2 Books), Swimming, Playing Football, Threat Analysis</p>
               </div>
               <div className="extra-item">
                 <h5 className="cyber-label">/languages</h5>

@@ -1,31 +1,84 @@
 import React from 'react'
-import { Layout, Terminal, Database, Cpu } from 'lucide-react'
+import { Layout, Terminal, Shield, Cpu, Database, Brain, Server, Layers } from 'lucide-react'
 
 const Skills = () => {
   const skills = [
     {
-      title: 'Languages',
-      icon: <Terminal className="skill-icon" />,
-      items: ['C', 'C++', 'Python', 'HTML/CSS', 'JavaScript'],
-      color: '#00ff41' // Green
-    },
-    {
-      title: 'Cybersecurity',
-      icon: <Database className="skill-icon" />,
-      items: ['IDS/IPS Systems', 'Biometric Security', 'Spoof Detection', 'Risk Analysis'],
+      title: 'Cybersecurity & VAPT',
+      icon: <Shield className="skill-icon" />,
+      items: [
+        'VAPT & Penetration Testing',
+        'Burp Suite & Metasploit',
+        'Nmap, Wireshark & Packet Inspection',
+        'IDS/IPS Systems & Spoof Detection',
+        'SOC, SIEM & Incident Response',
+        'OWASP Top 10 & Web Security'
+      ],
       color: '#fbff00' // Yellow/Gold
     },
     {
-      title: 'Networking',
-      icon: <Cpu className="skill-icon" />,
-      items: ['Network Security', 'Protocol Analysis', 'Packet Inspection', 'Routing & Switching'],
+      title: 'Programming Languages',
+      icon: <Terminal className="skill-icon" />,
+      items: [
+        'Python (Core, OOP, REST APIs)',
+        'Java & Spring Boot',
+        'C & C++',
+        'JavaScript & TypeScript',
+        'HTML5 & CSS3',
+        'PL/SQL & Bash'
+      ],
+      color: '#00ff41' // Green
+    },
+    {
+      title: 'AI / ML & Computer Vision',
+      icon: <Brain className="skill-icon" />,
+      items: [
+        'Applied LLM Integration (Gemini API)',
+        'RAG-style Grounding & Prompt Engineering',
+        'Computer Vision (OpenCV & Liveness)',
+        'Random Forest & Classification',
+        'Explainable AI (SHAP)',
+        'Pandas, NumPy, Scikit-learn'
+      ],
       color: '#00fff9' // Cyan
     },
     {
-      title: 'Soft Skills',
-      icon: <Layout className="skill-icon" />,
-      items: ['Problem Solving', 'Team Collaboration', 'Analytical Thinking', 'Time Management'],
-      color: '#ff00c1' // Pink/Magenta
+      title: 'Frameworks & Libraries',
+      icon: <Layers className="skill-icon" />,
+      items: [
+        'React & Next.js',
+        'Node.js & Express',
+        'Spring Boot',
+        'Socket.IO',
+        'D3.js & Cytoscape.js',
+        'OpenCV'
+      ],
+      color: '#ff00c1' // Magenta
+    },
+    {
+      title: 'Databases & Cloud',
+      icon: <Database className="skill-icon" />,
+      items: [
+        'MySQL & PL/SQL',
+        'MongoDB',
+        'Firebase / Cloud Firestore',
+        'Schema Design & Database Modeling',
+        'SQL CTEs, Joins & Optimization'
+      ],
+      color: '#ffa500' // Orange
+    },
+    {
+      title: 'DevOps, Tools & Systems',
+      icon: <Server className="skill-icon" />,
+      items: [
+        'Docker & CI/CD',
+        'Git & GitHub Version Control',
+        'Kali Linux, Ubuntu & Windows',
+        'VSCode & AntiGravity',
+        'Jupyter Notebook & Litmus',
+        'PRD, TRD & API Documentation'
+      ],
+      color: '#a855f7' // Purple
     }
   ]
 
@@ -53,11 +106,10 @@ const Skills = () => {
                 <div key={i} className="skill-item">
                   <div className="skill-label-wrap">
                     <span className="skill-name">{item}</span>
-                    <span className="skill-value" style={{ color: skill.color }}>{70 + (i * 5)}%</span>
                   </div>
                   <div className="skill-progress" style={{ borderColor: `${skill.color}30` }}>
                     <div className="skill-progress-fill" style={{
-                      width: `${70 + (i * 5)}%`,
+                      width: `${75 + ((i % 4) * 6)}%`,
                       background: `linear-gradient(90deg, ${skill.color}88, ${skill.color})`,
                       boxShadow: `0 0 10px ${skill.color}44`
                     }}></div>
@@ -96,6 +148,9 @@ const Skills = () => {
           padding: 10px;
           border-radius: 4px;
           border: 1px solid var(--primary-glow);
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .skill-status {
@@ -109,26 +164,23 @@ const Skills = () => {
         .skill-info h3 {
           font-size: 1.3rem;
           letter-spacing: 1px;
+          color: var(--text-primary);
         }
 
         .skill-item {
-          margin-bottom: 1.2rem;
+          margin-bottom: 1.1rem;
         }
 
         .skill-label-wrap {
           display: flex;
           justify-content: space-between;
           margin-bottom: 0.4rem;
-          font-size: 0.85rem;
+          font-size: 0.88rem;
           font-family: var(--font-heading);
         }
 
         .skill-name {
           color: var(--text-secondary);
-        }
-
-        .skill-value {
-          color: var(--primary);
         }
 
         .skill-progress {
@@ -151,7 +203,7 @@ const Skills = () => {
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
           animation: progress-slide 2s infinite;
         }
 

@@ -1,0 +1,298 @@
+[
+  {
+    "name": "CADGuard-AI",
+    "readme_length": 0,
+    "readme_sample": "",
+    "code_files_count": 1059,
+    "code_files_sample": [
+      "test_api.py",
+      "backend\\main.py",
+      "backend\\core\\ai_engine.py",
+      "backend\\core\\input_handler.py",
+      "backend\\core\\report_gen.py",
+      "backend\\core\\rule_config.py",
+      "backend\\core\\rule_engine.py",
+      "backend\\core\\scoring.py",
+      "backend\\venv\\Lib\\site-packages\\typing_extensions.py",
+      "backend\\venv\\Lib\\site-packages\\annotated_doc\\main.py"
+    ]
+  },
+  {
+    "name": "Chatify",
+    "readme_length": 0,
+    "readme_sample": "",
+    "code_files_count": 18,
+    "code_files_sample": [
+      "backend\\server.js",
+      "backend\\models\\ChatMessage.js",
+      "backend\\models\\User.js",
+      "frontend\\eslint.config.js",
+      "frontend\\index.html",
+      "frontend\\vite.config.js",
+      "frontend\\src\\App.jsx",
+      "frontend\\src\\main.jsx",
+      "frontend\\src\\components\\ChatList.jsx",
+      "frontend\\src\\components\\GamePanel.jsx"
+    ]
+  },
+  {
+    "name": "CollaboraX",
+    "readme_length": 935,
+    "readme_sample": "# CollaboraX  A simple full stack student project collaboration platform built with:  - HTML, CSS, JavaScript - Node.js and Express.js - SQLite through `better-sqlite3` - Server-rendered EJS pages  ## Run  ```bash npm install npm start ```  Open `http://localhost:3000`.  ## Implemented Fixes  - Passwords are hashed with `bcrypt.hash(password, 10)` and checked with `bcrypt.compare`. - Sessions use `resave: false` and `saveUninitialized: false`. - Files are stored in `public/uploads`. - Uploads al",
+    "code_files_count": 15,
+    "code_files_sample": [
+      "app.js",
+      "models\\db.js",
+      "models\\JoinRequest.js",
+      "models\\Project.js",
+      "models\\Resource.js",
+      "models\\Task.js",
+      "models\\User.js",
+      "public\\js\\skills-tags.js",
+      "routes\\authRoutes.js",
+      "routes\\githubAuthRoutes.js"
+    ]
+  },
+  {
+    "name": "CyberGuardLite",
+    "readme_length": 6213,
+    "readme_sample": "# \ud83d\udee1\ufe0f CyberGuard Lite **Cybersecurity Health Checker for Small Startups and Industries**  > A simple web-based cybersecurity assessment platform for small startups, shops, offices, manufacturers, clinics, and other small businesses.  ---  ## \ud83c\udf1f Executive Summary  Small organizations frequently lack dedicated cybersecurity teams, expensive security tools, or the time to decipher complex enterprise frameworks. **CyberGuard Lite** delivers a direct, actionable answer to the core question:  > **\u201cHow s",
+    "code_files_count": 39,
+    "code_files_sample": [
+      "backend\\main.py",
+      "backend\\app\\config.py",
+      "backend\\app\\database.py",
+      "backend\\app\\models.py",
+      "backend\\app\\schemas.py",
+      "backend\\app\\security.py",
+      "backend\\app\\seed.py",
+      "backend\\app\\__init__.py",
+      "backend\\app\\routers\\admin.py",
+      "backend\\app\\routers\\assessment.py"
+    ]
+  },
+  {
+    "name": "Find Evil!",
+    "readme_length": 10325,
+    "readme_sample": "# Protocol SIFT Enhanced - Autonomous Incident Response Agent  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)  A fully autonomous incident response agent that extends Protocol SIFT with enhanced accuracy, self-correction, and evidence integrity. Built for the **Find Evil! Hackathon** by SANS Institute.  ## \ud83c\udfaf Overview  Protocol SIFT En",
+    "code_files_count": 42,
+    "code_files_sample": [
+      "main.py",
+      "run_dashboard.py",
+      "output\\dashboard.html",
+      "sift-guardian\\main.py",
+      "sift-guardian\\src\\__init__.py",
+      "sift-guardian\\src\\agents\\orchestrator.py",
+      "sift-guardian\\src\\agents\\planner.py",
+      "sift-guardian\\src\\agents\\self_correction.py",
+      "sift-guardian\\src\\agents\\__init__.py",
+      "sift-guardian\\src\\mcp_server\\server.py"
+    ]
+  },
+  {
+    "name": "Galaxy",
+    "readme_length": 1518,
+    "readme_sample": "# \ud83c\udf0c Finger Galaxy Generator  > Control galaxies, stars, black holes, and cosmic explosions using only your hands.  ## Quick Start  ```bash # Serve locally (required \u2014 ES modules need a server) npx serve . # or npx http-server . -p 8080 ```  Then open **http://localhost:3000** (or 8080) and allow camera access.  > \u26a0\ufe0f **Must use a local server** \u2014 ES modules won't load from `file://` directly.  ---  ## Gesture Guide  | Gesture | Effect | |---|---| | \ud83e\udd0f Fingers close together | Galaxy formation | | ",
+    "code_files_count": 7,
+    "code_files_sample": [
+      "index.html",
+      "main.js",
+      "src\\gestures\\gestureDetector.js",
+      "src\\particles\\particleSystem.js",
+      "src\\physics\\physics.js",
+      "src\\tracking\\handTracker.js",
+      "src\\visuals\\renderer.js"
+    ]
+  },
+  {
+    "name": "Ghost Notes",
+    "readme_length": 0,
+    "readme_sample": "",
+    "code_files_count": 12,
+    "code_files_sample": [
+      "backend\\crypto_utils.js",
+      "backend\\database.js",
+      "backend\\server.js",
+      "backend\\verify_time.js",
+      "frontend\\eslint.config.js",
+      "frontend\\index.html",
+      "frontend\\vite.config.js",
+      "frontend\\src\\App.jsx",
+      "frontend\\src\\main.jsx",
+      "frontend\\src\\components\\NoteCreate.jsx"
+    ]
+  },
+  {
+    "name": "Personal Expense Analyzer",
+    "readme_length": 1618,
+    "readme_sample": "# Personal Expense Analyzer  A full-stack application for recording and analyzing personal expenses, featuring public and private transaction visibility.  ## \ud83d\ude80 Features  - **Transaction Logging**: Record amount, category, date, description. - **Privacy Controls**: Toggle visibility between **Public** and **Private**. - **Filtered Views**: View transactions based on their visibility status. - **Secure Backend**: Input validation, parameterized queries, and error handling. - **Modern UI**: Clean, ",
+    "code_files_count": 44,
+    "code_files_sample": [
+      "check_data.js",
+      "create_demo_user.js",
+      "eslint.config.js",
+      "index.html",
+      "migrate_supabase.js",
+      "next.config.js",
+      "test_register.js",
+      "test_reg_endpoint.js",
+      "vite.config.js",
+      "server\\create_db.js"
+    ]
+  },
+  {
+    "name": "Personalised Tourist",
+    "readme_length": 91,
+    "readme_sample": "# Personalised-Toursit-Managment-System Personalised Tourist Managment System using python ",
+    "code_files_count": 0,
+    "code_files_sample": []
+  },
+  {
+    "name": "Phishview",
+    "readme_length": 0,
+    "readme_sample": "",
+    "code_files_count": 0,
+    "code_files_sample": []
+  },
+  {
+    "name": "SentinelAI",
+    "readme_length": 2359,
+    "readme_sample": "# SentinelAI  SentinelAI is an autonomous security investigation and response platform for Splunk. It provides AI-powered incident summarization, root cause analysis, MITRE ATT&CK mapping, remediation recommendations, and executive reporting.  ## Project Structure  - `backend/` \u2014 FastAPI backend, AI agent placeholders, Splunk integration helpers - `frontend/` \u2014 React + Tailwind dashboard - `sample-data/` \u2014 sample alerts, logs, and incidents for demo use - `docs/` \u2014 architecture and feature docum",
+    "code_files_count": 1890,
+    "code_files_sample": [
+      ".venv\\Lib\\site-packages\\typing_extensions.py",
+      ".venv\\Lib\\site-packages\\annotated_doc\\main.py",
+      ".venv\\Lib\\site-packages\\annotated_doc\\__init__.py",
+      ".venv\\Lib\\site-packages\\annotated_types\\test_cases.py",
+      ".venv\\Lib\\site-packages\\annotated_types\\__init__.py",
+      ".venv\\Lib\\site-packages\\anyio\\from_thread.py",
+      ".venv\\Lib\\site-packages\\anyio\\lowlevel.py",
+      ".venv\\Lib\\site-packages\\anyio\\pytest_plugin.py",
+      ".venv\\Lib\\site-packages\\anyio\\to_process.py",
+      ".venv\\Lib\\site-packages\\anyio\\to_thread.py"
+    ]
+  },
+  {
+    "name": "ThrottleIQ",
+    "readme_length": 1738,
+    "readme_sample": "# Welcome to your Expo app \ud83d\udc4b  This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).  ## Get started  1. Install dependencies     ```bash    npm install    ```  2. Start the app     ```bash    npx expo start    ```  In the output, you'll find options to open the app in a  - [development build](https://docs.expo.dev/develop/development-builds/introduction/) - [Android emulator](https://docs.expo.dev/workflow/android-studio-emul",
+    "code_files_count": 28,
+    "code_files_sample": [
+      "App.js",
+      "eslint.config.js",
+      "app\\modal.tsx",
+      "app\\_layout.tsx",
+      "app\\(tabs)\\explore.tsx",
+      "app\\(tabs)\\index.tsx",
+      "app\\(tabs)\\_layout.tsx",
+      "components\\external-link.tsx",
+      "components\\haptic-tab.tsx",
+      "components\\hello-wave.tsx"
+    ]
+  },
+  {
+    "name": "ai-code-engine",
+    "readme_length": 0,
+    "readme_sample": "",
+    "code_files_count": 20,
+    "code_files_sample": [
+      "SkillCredibilitySystem\\task.html",
+      "SkillCredibilitySystem\\test_github_simple.py",
+      "SkillCredibilitySystem\\verify_system.py",
+      "SkillCredibilitySystem\\backend\\main.py",
+      "SkillCredibilitySystem\\backend\\test_api.py",
+      "SkillCredibilitySystem\\backend\\test_direct.py",
+      "SkillCredibilitySystem\\backend\\models\\schemas.py",
+      "SkillCredibilitySystem\\backend\\routers\\analysis.py",
+      "SkillCredibilitySystem\\backend\\services\\github_ingestor.py",
+      "SkillCredibilitySystem\\backend\\services\\resume_parser.py"
+    ]
+  },
+  {
+    "name": "airdraw",
+    "readme_length": 1027,
+    "readme_sample": "# React + Vite  This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.  Currently, two official plugins are available:  - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs) - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)  ## React Compiler  The React Compiler is not enabled on this templa",
+    "code_files_count": 7,
+    "code_files_sample": [
+      "eslint.config.js",
+      "index.html",
+      "vite.config.js",
+      "src\\App.jsx",
+      "src\\main.jsx",
+      "src\\hooks\\useHandTracking.js",
+      "src\\hooks\\useWebcam.js"
+    ]
+  },
+  {
+    "name": "bankguard.ai",
+    "readme_length": 7019,
+    "readme_sample": "# \ud83d\udee1\ufe0f BankGuard AI - Enterprise Fraud Detection & Banking Management Platform  **BankGuard AI** is a next-generation AI-powered core banking security, fraud detection, and threat intelligence system built for high-throughput enterprise financial networks. It combines client-side Random Forest ensemble classifiers (<10ms inference), Explainable AI (SHAP value decompositions), interactive D3.js Money Mule graph visualization, Zero-Knowledge Proof (ZKP) identity verification, Google Cloud Firestore ",
+    "code_files_count": 37,
+    "code_files_sample": [
+      "get-pip.py",
+      "index.html",
+      "ml_service.py",
+      "predict.py",
+      "server.ts",
+      "train_model.py",
+      "vite.config.ts",
+      "src\\App.tsx",
+      "src\\main.tsx",
+      "src\\types.ts"
+    ]
+  },
+  {
+    "name": "instary",
+    "readme_length": 1157,
+    "readme_sample": "# React + Vite  This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.  Currently, two official plugins are available:  - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/p",
+    "code_files_count": 18,
+    "code_files_sample": [
+      "eslint.config.js",
+      "index.html",
+      "vite.config.js",
+      "src\\App.jsx",
+      "src\\main.jsx",
+      "src\\components\\AppShell.jsx",
+      "src\\components\\FeedItem.jsx",
+      "src\\components\\LiveSidebar.jsx",
+      "src\\components\\Stories.jsx",
+      "src\\context\\AppContext.jsx"
+    ]
+  },
+  {
+    "name": "kashvion",
+    "readme_length": 1738,
+    "readme_sample": "# Welcome to your Expo app \ud83d\udc4b  This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).  ## Get started  1. Install dependencies     ```bash    npm install    ```  2. Start the app     ```bash    npx expo start    ```  In the output, you'll find options to open the app in a  - [development build](https://docs.expo.dev/develop/development-builds/introduction/) - [Android emulator](https://docs.expo.dev/workflow/android-studio-emul",
+    "code_files_count": 57,
+    "code_files_sample": [
+      "App.tsx",
+      "babel.config.js",
+      "eslint.config.js",
+      "metro.config.js",
+      "nativewind-env.d.ts",
+      "tailwind.config.js",
+      ".expo\\types\\router.d.ts",
+      "app\\index.tsx",
+      "app\\_layout.tsx",
+      "backend\\app.js"
+    ]
+  },
+  {
+    "name": "wifi-network-monitor",
+    "readme_length": 2518,
+    "readme_sample": "# WiFi Network Access Monitor  A lightweight Flask web app for monitoring devices on a local WiFi network, approving trusted devices, and logging suspicious access.  ## Features  - Login with hashed passwords and session protection - Local IPv4 network scanning every 20 seconds when monitoring is enabled - Device table with IP address, MAC address, hostname, vendor, and status - Device type examples such as Router/Gateway, Laptop/Desktop, Mobile device, and Network device - Manual authorization ",
+    "code_files_count": 11,
+    "code_files_sample": [
+      "app.py",
+      "alerts\\notifier.py",
+      "database\\models.py",
+      "scanner\\device_detector.py",
+      "scanner\\network_scanner.py",
+      "static\\js\\app.js",
+      "templates\\base.html",
+      "templates\\dashboard.html",
+      "templates\\devices.html",
+      "templates\\login.html"
+    ]
+  }
+]

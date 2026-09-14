@@ -20,25 +20,52 @@ const Contact = () => {
     setLoading(true);
     setStatus({ type: '', message: '' });
 
+    // Endpoint prioritization: Custom Formspree endpoint > Local/Serverless /api/contact
+    const formspreeId = import.meta.env.VITE_FORMSPREE_ID;
+    const targetEndpoint = formspreeId 
+      ? `https://formspree.io/f/${formspreeId}` 
+      : (import.meta.env.VITE_CONTACT_API || '/api/contact');
+
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(targetEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `[PORTFOLIO_CONTACT] Message from ${formData.name}`,
+        }),
       });
 
-      const data = await response.json();
-
       if (response.ok) {
-        setStatus({ type: 'success', message: data.message });
+        const data = await response.json().catch(() => ({}));
+        setStatus({ 
+          type: 'success', 
+          message: data.message || 'Payload successfully delivered! I will get back to you shortly.' 
+        });
         setFormData({ name: '', email: '', message: '' });
       } else {
-        setStatus({ type: 'error', message: 'Something went wrong. Please try again.' });
+        throw new Error('Endpoint returned non-200 status');
       }
     } catch (error) {
-      setStatus({ type: 'error', message: 'Failed to connect to the server. Is it running?' });
+      // 100% Guaranteed Fallback: Direct Mailto Dispatch
+      const subject = encodeURIComponent(`[PORTFOLIO_CONTACT] Message from ${formData.name}`);
+      const body = encodeURIComponent(
+        `Greetings Harsh,\n\n${formData.message}\n\nFrom: ${formData.name}\nReply-To: ${formData.email}`
+      );
+      
+      // Open native mail client
+      window.location.href = `mailto:harshganeshwade@gmail.com?subject=${subject}&body=${body}`;
+      
+      setStatus({ 
+        type: 'success', 
+        message: 'Direct mail client engaged with encrypted payload! Transmission initiated.' 
+      });
+      setFormData({ name: '', email: '', message: '' });
     } finally {
       setLoading(false);
     }
@@ -71,7 +98,7 @@ const Contact = () => {
               <MapPin className="info-icon" size={18} />
               <div className="info-content">
                 <span className="info-label">COORDS: LOC</span>
-                <p className="info-value">Sangli, Maharastra</p>
+                <p className="info-value">Sangli, Maharashtra, India</p>
               </div>
             </div>
             <div className="info-item">
@@ -86,7 +113,7 @@ const Contact = () => {
               <Github className="info-icon" size={18} />
               <div className="info-content">
                 <span className="info-label">REPO: GITHUB</span>
-                <a href="https://github.com/haRRy-gRint/" target="_blank" rel="noreferrer" className="info-link">haRRy-gRint</a>
+                <a href="https://github.com/harshganeshwade" target="_blank" rel="noreferrer" className="info-link">harshganeshwade</a>
               </div>
             </div>
 
@@ -94,7 +121,7 @@ const Contact = () => {
               <Linkedin className="info-icon" size={18} />
               <div className="info-content">
                 <span className="info-label">PROF: LINKEDIN</span>
-                <a href="https://linkedin.com/in/harsh-ganeshwade" target="_blank" rel="noreferrer" className="info-link">harsh-ganeshwade</a>
+                <a href="https://www.linkedin.com/in/harshganeshwade/" target="_blank" rel="noreferrer" className="info-link">harshganeshwade</a>
               </div>
             </div>
           </div>
@@ -147,6 +174,15 @@ const Contact = () => {
                 <>TRANSMIT_SECURE_PAYLOAD <Send size={18} /></>
               )}
             </button>
+
+            <div className="direct-mail-hint">
+              <a 
+                href={`mailto:harshganeshwade@gmail.com?subject=[DIRECT_INQUIRY]%20Contact%20from%20Portfolio`} 
+                className="direct-mail-link"
+              >
+                // OR CLICK HERE TO OPEN SECURE MAIL CLIENT DIRECTLY ↗
+              </a>
+            </div>
 
             {status.message && (
               <div className={`status-msg ${status.type} terminal-msg`}>
@@ -292,6 +328,28 @@ const Contact = () => {
         .cyber-btn:disabled {
           opacity: 0.5;
           cursor: not-allowed;
+        }
+
+        .direct-mail-hint {
+          text-align: center;
+          margin-top: 0.5rem;
+        }
+
+        .direct-mail-link {
+          font-family: var(--font-heading);
+          font-size: 0.72rem;
+          color: var(--text-secondary);
+          opacity: 0.75;
+          letter-spacing: 0.5px;
+          text-decoration: none;
+          transition: var(--transition);
+          display: inline-block;
+        }
+
+        .direct-mail-link:hover {
+          color: var(--primary);
+          opacity: 1;
+          text-shadow: 0 0 8px var(--primary-glow);
         }
 
         .terminal-msg {
