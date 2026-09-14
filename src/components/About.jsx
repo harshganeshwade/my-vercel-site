@@ -87,12 +87,14 @@ const About = () => {
           display: grid;
           grid-template-columns: 1fr 1.8fr;
           gap: 4rem;
-          align-items: start;
+          align-items: center;
         }
 
         .about-image-container {
           position: relative;
           padding: 20px;
+          max-width: 360px;
+          margin: 0 auto;
         }
 
         .target-lock span {
@@ -115,20 +117,23 @@ const About = () => {
           align-items: center;
           justify-content: center;
           overflow: hidden;
-          border-radius: 4px;
+          border-radius: 6px;
           border: 1px solid var(--primary-glow);
+          box-shadow: 0 0 25px rgba(0, 255, 65, 0.15);
         }
 
         .profile-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(1) contrast(1.2) brightness(0.8);
+            object-position: center 15%;
+            filter: grayscale(0.8) contrast(1.15) brightness(0.9);
             transition: var(--transition);
         }
 
         .about-image:hover .profile-img {
-          filter: grayscale(0) contrast(1);
+          filter: grayscale(0) contrast(1.05) brightness(1);
+          transform: scale(1.03);
         }
 
         .about-text-wrapper {

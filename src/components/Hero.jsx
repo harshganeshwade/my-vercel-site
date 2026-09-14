@@ -1,16 +1,28 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, ExternalLink, Shield, Terminal, ChevronDown, Sparkles } from 'lucide-react';
+import { ArrowRight, ExternalLink, Terminal, ChevronDown } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SpiderWeb from './SpiderWeb';
 import heroImg from '../assets/harsh_hero.jpg';
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Hero = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [scrollY, setScrollY] = useState(0);
-  const heroRef = useRef(null);
   const [magneticBtn1, setMagneticBtn1] = useState({ x: 0, y: 0 });
   const [magneticBtn2, setMagneticBtn2] = useState({ x: 0, y: 0 });
 
-  // Mouse move parallax tracker
+  const heroSceneRef = useRef(null);
+  const heroPinRef = useRef(null);
+  const avatarWrapperRef = useRef(null);
+  const titleLeftRef = useRef(null);
+  const titleRightRef = useRef(null);
+  const hudElementsRef = useRef(null);
+  const badgesRef = useRef(null);
+  const ctaRef = useRef(null);
+  const scrimOverlayRef = useRef(null);
+
+  // Mouse move 3D parallax tracking
   useEffect(() => {
     const handleMouseMove = (e) => {
       const { innerWidth, innerHeight } = window;
@@ -19,19 +31,75 @@ const Hero = () => {
       setMousePos({ x, y });
     };
 
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
     window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Magnetic hover effect helpers
+  // GSAP ScrollTrigger Timeline - Scrollytelling Scene
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: heroSceneRef.current,
+          start: 'top top',
+          end: '+=130%',
+          pin: heroPinRef.current,
+          scrub: 1.1,
+          anticipatePin: 1,
+        }
+      });
+
+      // 01. Typography spreads apart & HUD drifts
+      tl.to([titleLeftRef.current], {
+        x: -120,
+        opacity: 0.15,
+        letterSpacing: '12px',
+        ease: 'power2.out',
+      }, 0);
+
+      tl.to([titleRightRef.current], {
+        x: 120,
+        opacity: 0.15,
+        letterSpacing: '12px',
+        ease: 'power2.out',
+      }, 0);
+
+      tl.to(hudElementsRef.current, {
+        scale: 1.3,
+        opacity: 0,
+        y: -40,
+        ease: 'power2.out',
+      }, 0);
+
+      tl.to([badgesRef.current, ctaRef.current], {
+        opacity: 0,
+        y: 30,
+        scale: 0.95,
+        ease: 'power2.out',
+      }, 0);
+
+      // 02. Main visual zooms toward viewer with depth
+      tl.to(avatarWrapperRef.current, {
+        scale: 1.55,
+        z: 100,
+        opacity: 0.9,
+        filter: 'drop-shadow(0 0 45px rgba(0, 255, 65, 0.6))',
+        ease: 'power1.inOut',
+      }, 0.2);
+
+      // 03. Scrim dissolve into next section
+      tl.to(scrimOverlayRef.current, {
+        opacity: 1,
+        backdropFilter: 'blur(10px)',
+        ease: 'power2.inOut',
+      }, 0.6);
+
+    }, heroSceneRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  // Magnetic button helpers
   const handleMagneticMove = (e, setBtnState) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = (e.clientX - (rect.left + rect.width / 2)) * 0.35;
@@ -44,143 +112,156 @@ const Hero = () => {
   };
 
   return (
-    <section ref={heroRef} className="section hero">
-      {/* Background Parallax Cyber Elements */}
-      <div 
-        className="hero-bg-floating-grid"
-        style={{
-          transform: `translateY(${scrollY * 0.25}px) translate(${mousePos.x * -12}px, ${mousePos.y * -12}px)`
-        }}
-      >
-        <div className="hud-corner top-left">[SYS_INIT: OK]</div>
-        <div className="hud-corner top-right">[RADAR: ACTIVE]</div>
-        <div className="hud-line horizontal"></div>
-      </div>
+    <div ref={heroSceneRef} className="hero-scene-track">
+      <div ref={heroPinRef} className="hero-pin-viewport">
+        {/* Scrim Overlay for filmic dissolve */}
+        <div ref={scrimOverlayRef} className="hero-scrim-overlay"></div>
 
-      <div className="container hero-container">
+        {/* Parallax Floating HUD Background */}
         <div 
-          className="hero-content"
+          ref={hudElementsRef}
+          className="hero-bg-floating-grid"
           style={{
-            transform: `translate(${mousePos.x * 6}px, ${mousePos.y * 6}px)`
+            transform: `translate(${mousePos.x * -16}px, ${mousePos.y * -16}px)`
           }}
         >
-          {/* Main Visual Profile with 3D Mouse Parallax Tilt */}
+          <div className="hud-corner top-left">[SYS_INIT: OK // TIMELINE_ACTIVE]</div>
+          <div className="hud-corner top-right">[RADAR: 360° ONLINE]</div>
+          <div className="hud-watermark">PURPLE_TEAM_ALPHA</div>
+        </div>
+
+        <div className="container hero-container">
           <div 
-            className="hero-image-wrapper cinematic-reveal"
+            className="hero-content"
             style={{
-              transform: `perspective(800px) rotateX(${mousePos.y * -15}deg) rotateY(${mousePos.x * 15}deg) translateZ(20px)`,
-              animationDelay: '0.1s'
+              transform: `translate(${mousePos.x * 6}px, ${mousePos.y * 6}px)`
             }}
           >
-            <div className="hero-image-ring-outer"></div>
-            <div className="hero-image-ring-inner"></div>
-            <img src={heroImg} alt="Harsh Ganeshwade" className="hero-profile-img" />
-            <div className="scanline-circle"></div>
-            <div className="hud-status-badge">
-              <span className="hud-status-pulse"></span>
-              <span className="hud-status-text">PURPLE_TEAM_ACTIVE</span>
+            {/* 3D Interactive Visual Avatar */}
+            <div 
+              ref={avatarWrapperRef}
+              className="hero-image-wrapper"
+              style={{
+                transform: `perspective(800px) rotateX(${mousePos.y * -15}deg) rotateY(${mousePos.x * 15}deg)`
+              }}
+            >
+              <div className="hero-image-ring-outer"></div>
+              <div className="hero-image-ring-inner"></div>
+              <img src={heroImg} alt="Harsh Ganeshwade" className="hero-profile-img" />
+              <div className="scanline-circle"></div>
+              <div className="hud-status-badge">
+                <span className="hud-status-pulse"></span>
+                <span className="hud-status-text">PURPLE_TEAM_ACTIVE</span>
+              </div>
+            </div>
+
+            {/* Top Tactical Badge */}
+            <div ref={badgesRef}>
+              <span className="badge cyber-badge">
+                <Terminal size={14} className="badge-icon" />
+                <span className="badge-words">
+                  <span>Cybersecurity Enthusiast</span>
+                  <span className="badge-sep">/</span>
+                  <span>VAPT & Purple Team</span>
+                  <span className="badge-sep">/</span>
+                  <span>SOC & SIEM</span>
+                </span>
+              </span>
+            </div>
+
+            {/* Giant Kinetic Splitting Headline */}
+            <h1 className="glitch-wrapper kinetic-headline">
+              <span ref={titleLeftRef} className="kinetic-part left" data-text="HARSH">HARSH</span>
+              {' '}
+              <span ref={titleRightRef} className="kinetic-part right" data-text="GANESHWADE">GANESHWADE</span>
+            </h1>
+
+            {/* Status Tags */}
+            <div className="hero-status-tags">
+              <span className="hero-status-tag">📍 Sangli, Maharashtra</span>
+              <span className="hero-status-tag">⚡ VAPT & Purple Teaming</span>
+              <span className="hero-status-tag">🛡️ SOC & SIEM</span>
+              <span className="hero-status-tag">📖 Published Author (2 Books)</span>
+            </div>
+
+            {/* Interactive Network Graph */}
+            <SpiderWeb />
+
+            {/* Magnetic CTA Buttons */}
+            <div ref={ctaRef} className="hero-btns">
+              <a 
+                href="#projects" 
+                className="btn btn-primary magnetic-btn"
+                onMouseMove={(e) => handleMagneticMove(e, setMagneticBtn1)}
+                onMouseLeave={() => handleMagneticLeave(setMagneticBtn1)}
+                style={{
+                  transform: `translate(${magneticBtn1.x}px, ${magneticBtn1.y}px)`
+                }}
+              >
+                <span className="btn-glow-layer"></span>
+                <span className="btn-text">
+                  VIEW PROJECTS <ArrowRight size={17} />
+                </span>
+              </a>
+
+              <a 
+                href="https://drive.google.com/drive/folders/1sm8nkHP4xmSri6O_yGB3Omc7b1_RhyPL" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="btn btn-outline magnetic-btn"
+                onMouseMove={(e) => handleMagneticMove(e, setMagneticBtn2)}
+                onMouseLeave={() => handleMagneticLeave(setMagneticBtn2)}
+                style={{
+                  transform: `translate(${magneticBtn2.x}px, ${magneticBtn2.y}px)`
+                }}
+                title="Access Dedicated Resumes (3 Roles) on Google Drive"
+              >
+                <span className="btn-glow-layer outline"></span>
+                <span className="btn-text">
+                  ACCESS RESUMES (DRIVE) <ExternalLink size={17} />
+                </span>
+              </a>
             </div>
           </div>
+        </div>
 
-          {/* Staggered Word-by-Word Line Reveal */}
-          <div className="cinematic-reveal" style={{ animationDelay: '0.3s' }}>
-            <span className="badge cyber-badge">
-              <Terminal size={14} className="badge-icon" />
-              <span className="badge-words">
-                <span>Cybersecurity Enthusiast</span>
-                <span className="badge-sep">/</span>
-                <span>VAPT & Purple Team</span>
-                <span className="badge-sep">/</span>
-                <span>SOC & SIEM</span>
-              </span>
-            </span>
-          </div>
-
-          <h1 className="glitch-wrapper cinematic-reveal" style={{ animationDelay: '0.5s' }}>
-            <span className="glitch cinematic-title" data-text="Harsh Ganeshwade">
-              Harsh Ganeshwade
-            </span>
-          </h1>
-
-          {/* Staggered Status Badges */}
-          <div className="hero-status-tags cinematic-reveal" style={{ animationDelay: '0.7s' }}>
-            <span className="hero-status-tag tag-1">
-              📍 Sangli, Maharashtra
-            </span>
-            <span className="hero-status-tag tag-2">
-              ⚡ VAPT & Purple Teaming
-            </span>
-            <span className="hero-status-tag tag-3">
-              🛡️ SOC & SIEM
-            </span>
-            <span className="hero-status-tag tag-4">
-              📖 Published Author (2 Books)
-            </span>
-          </div>
-
-          {/* Interactive Network Graph */}
-          <div className="cinematic-reveal" style={{ animationDelay: '0.9s' }}>
-            <SpiderWeb />
-          </div>
-
-          {/* Magnetic CTA Action Buttons */}
-          <div className="hero-btns cinematic-reveal" style={{ animationDelay: '1.1s' }}>
-            <a 
-              href="#projects" 
-              className="btn btn-primary magnetic-btn"
-              onMouseMove={(e) => handleMagneticMove(e, setMagneticBtn1)}
-              onMouseLeave={() => handleMagneticLeave(setMagneticBtn1)}
-              style={{
-                transform: `translate(${magneticBtn1.x}px, ${magneticBtn1.y}px)`
-              }}
-            >
-              <span className="btn-glow-layer"></span>
-              <span className="btn-text">
-                VIEW PROJECTS <ArrowRight size={17} />
-              </span>
-            </a>
-
-            <a 
-              href="https://drive.google.com/drive/folders/1sm8nkHP4xmSri6O_yGB3Omc7b1_RhyPL" 
-              target="_blank" 
-              rel="noreferrer" 
-              className="btn btn-outline magnetic-btn"
-              onMouseMove={(e) => handleMagneticMove(e, setMagneticBtn2)}
-              onMouseLeave={() => handleMagneticLeave(setMagneticBtn2)}
-              style={{
-                transform: `translate(${magneticBtn2.x}px, ${magneticBtn2.y}px)`
-              }}
-              title="Access Dedicated Resumes (3 Roles) on Google Drive"
-            >
-              <span className="btn-glow-layer outline"></span>
-              <span className="btn-text">
-                ACCESS RESUMES (DRIVE) <ExternalLink size={17} />
-              </span>
-            </a>
-          </div>
+        {/* Bottom Transition Scrollytelling Cue */}
+        <div className="hero-transition-bridge">
+          <a href="#about" className="scroll-bridge-trigger" aria-label="Scroll to About section">
+            <span className="bridge-text">SCROLL TO ENTER</span>
+            <ChevronDown size={18} className="bridge-arrow" />
+          </a>
+          <div className="bridge-gradient-glow"></div>
         </div>
       </div>
 
-      {/* Atmospheric Transition Bridge to Next Section */}
-      <div className="hero-transition-bridge">
-        <a href="#about" className="scroll-bridge-trigger" aria-label="Scroll to About section">
-          <span className="bridge-text">EXPLORE_SYSTEM</span>
-          <ChevronDown size={18} className="bridge-arrow" />
-        </a>
-        <div className="bridge-gradient-glow"></div>
-      </div>
-
       <style>{`
-        .hero {
-          min-height: 94vh;
+        .hero-scene-track {
+          position: relative;
+          height: 180vh;
+        }
+
+        .hero-pin-viewport {
+          min-height: 100vh;
+          width: 100%;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          padding-top: 7.5rem;
-          padding-bottom: 3rem;
           position: relative;
           overflow: hidden;
+          padding-top: 6.5rem;
+          padding-bottom: 2rem;
+        }
+
+        .hero-scrim-overlay {
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(circle at center, rgba(6, 11, 17, 0.4) 0%, rgba(6, 11, 17, 0.95) 100%);
+          opacity: 0;
+          pointer-events: none;
+          z-index: 5;
+          transition: opacity 0.3s ease;
         }
 
         .hero-container {
@@ -189,14 +270,14 @@ const Hero = () => {
         }
 
         .hero-content {
-          max-width: 840px;
+          max-width: 860px;
           margin: 0 auto;
           text-align: center;
-          transition: transform 0.15s ease-out;
+          transition: transform 0.12s ease-out;
           will-change: transform;
         }
 
-        /* Floating Parallax HUD Elements */
+        /* Floating Parallax HUD */
         .hero-bg-floating-grid {
           position: absolute;
           inset: 0;
@@ -208,50 +289,48 @@ const Hero = () => {
         .hud-corner {
           position: absolute;
           font-family: var(--font-heading);
-          font-size: 0.7rem;
+          font-size: 0.72rem;
           color: var(--primary);
-          opacity: 0.4;
+          opacity: 0.45;
           letter-spacing: 1.5px;
         }
 
-        .hud-corner.top-left { top: 18%; left: 8%; }
-        .hud-corner.top-right { top: 18%; right: 8%; }
+        .hud-corner.top-left { top: 14%; left: 6%; }
+        .hud-corner.top-right { top: 14%; right: 6%; }
 
-        /* Staggered Cinematic Reveal Animation */
-        .cinematic-reveal {
-          opacity: 0;
-          transform: translateY(24px);
-          animation: cinematicFadeIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        .hud-watermark {
+          position: absolute;
+          top: 45%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-family: var(--font-heading);
+          font-size: clamp(3rem, 14vw, 9rem);
+          font-weight: 900;
+          color: rgba(0, 255, 65, 0.025);
+          letter-spacing: 10px;
+          white-space: nowrap;
+          pointer-events: none;
+          user-select: none;
         }
 
-        @keyframes cinematicFadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(24px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        /* 3D Visual Profile Image */
+        /* Avatar 3D Wrapper */
         .hero-image-wrapper {
           position: relative;
-          width: 190px;
-          height: 190px;
-          margin: 0 auto 2.2rem;
-          padding: 8px;
+          width: 135px;
+          height: 135px;
+          margin: 0 auto 1rem;
+          padding: 6px;
           display: flex;
           align-items: center;
           justify-content: center;
           transform-style: preserve-3d;
-          transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+          transition: transform 0.2s ease-out, filter 0.3s ease;
+          will-change: transform, filter;
         }
 
         .hero-image-ring-outer {
           position: absolute;
-          inset: -6px;
+          inset: -5px;
           border: 1.5px dashed var(--primary);
           border-radius: 50%;
           opacity: 0.7;
@@ -272,15 +351,16 @@ const Hero = () => {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          object-position: center 15%;
           border-radius: 50%;
           border: 1px solid var(--glass-border);
-          box-shadow: 0 0 35px var(--primary-glow);
+          box-shadow: 0 0 30px var(--primary-glow);
           z-index: 1;
         }
 
         .scanline-circle {
           position: absolute;
-          inset: 8px;
+          inset: 6px;
           border-radius: 50%;
           background: linear-gradient(to bottom, transparent, var(--primary-glow), transparent);
           background-size: 100% 200%;
@@ -292,21 +372,21 @@ const Hero = () => {
 
         .hud-status-badge {
           position: absolute;
-          bottom: -10px;
+          bottom: -8px;
           background: rgba(10, 16, 22, 0.95);
           border: 1px solid var(--primary);
-          padding: 3px 10px;
+          padding: 2px 8px;
           border-radius: 20px;
           display: flex;
           align-items: center;
-          gap: 6px;
+          gap: 5px;
           z-index: 3;
-          box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+          box-shadow: 0 0 12px rgba(0, 255, 65, 0.3);
         }
 
         .hud-status-pulse {
-          width: 6px;
-          height: 6px;
+          width: 5px;
+          height: 5px;
           background: var(--primary);
           border-radius: 50%;
           box-shadow: 0 0 8px var(--primary);
@@ -320,7 +400,7 @@ const Hero = () => {
 
         .hud-status-text {
           font-family: var(--font-heading);
-          font-size: 0.65rem;
+          font-size: 0.6rem;
           font-weight: 700;
           color: var(--primary);
           letter-spacing: 1px;
@@ -345,17 +425,17 @@ const Hero = () => {
         .cyber-badge {
           display: inline-flex;
           align-items: center;
-          gap: 8px;
-          padding: 0.45rem 1.1rem;
+          gap: 6px;
+          padding: 0.35rem 0.9rem;
           background: rgba(0, 255, 65, 0.04);
           border: 1px solid var(--primary-glow);
           border-radius: 100px;
-          font-size: 0.78rem;
+          font-size: 0.72rem;
           font-family: var(--font-heading);
           font-weight: 600;
           color: var(--primary);
-          margin-bottom: 1.5rem;
-          box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+          margin-bottom: 0.8rem;
+          box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
         }
 
         .badge-icon {
@@ -363,22 +443,27 @@ const Hero = () => {
         }
 
         .badge-sep {
-          margin: 0 6px;
+          margin: 0 5px;
           opacity: 0.4;
         }
 
-        /* Headline Glitch */
-        .glitch-wrapper {
-          position: relative;
-          margin-bottom: 1.2rem;
-        }
-
-        .cinematic-title {
-          font-size: clamp(3rem, 9vw, 5.2rem);
+        /* Kinetic Splitting Headline */
+        .kinetic-headline {
+          font-size: clamp(2rem, 5.5vw, 3.4rem);
           font-weight: 800;
           letter-spacing: -1px;
+          margin-bottom: 0.6rem;
+          display: flex;
+          justify-content: center;
+          gap: 0.7rem;
+          flex-wrap: wrap;
+        }
+
+        .kinetic-part {
+          display: inline-block;
           color: var(--primary);
           text-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+          will-change: transform, letter-spacing, opacity;
         }
 
         /* Status Tags */
@@ -386,18 +471,18 @@ const Hero = () => {
           display: flex;
           justify-content: center;
           flex-wrap: wrap;
-          gap: 0.6rem;
-          margin-top: 0.8rem;
-          margin-bottom: 1.8rem;
+          gap: 0.5rem;
+          margin-top: 0.4rem;
+          margin-bottom: 0.8rem;
         }
 
         .hero-status-tag {
           font-family: var(--font-heading);
-          font-size: 0.75rem;
+          font-size: 0.7rem;
           color: var(--text-secondary);
           background: rgba(0, 255, 65, 0.04);
           border: 1px solid var(--glass-border);
-          padding: 0.35rem 0.85rem;
+          padding: 0.25rem 0.65rem;
           border-radius: 20px;
           transition: all 0.25s ease;
         }
@@ -409,13 +494,13 @@ const Hero = () => {
           transform: translateY(-2px);
         }
 
-        /* Magnetic Buttons */
+        /* Magnetic CTA Buttons */
         .hero-btns {
           display: flex;
           justify-content: center;
-          gap: 1.5rem;
+          gap: 1.2rem;
           flex-wrap: wrap;
-          margin-top: 2.2rem;
+          margin-top: 1rem;
         }
 
         .magnetic-btn {
@@ -460,7 +545,7 @@ const Hero = () => {
         /* Transition Bridge */
         .hero-transition-bridge {
           position: absolute;
-          bottom: 12px;
+          bottom: 16px;
           left: 50%;
           transform: translateX(-50%);
           display: flex;
@@ -514,10 +599,11 @@ const Hero = () => {
         @media (max-width: 768px) {
           .hud-corner { display: none; }
           .hero-btns { flex-direction: column; width: 100%; max-width: 320px; margin-left: auto; margin-right: auto; }
-          .hero-image-wrapper { width: 160px; height: 160px; }
+          .hero-image-wrapper { width: 150px; height: 150px; }
+          .kinetic-headline { font-size: 2.2rem; }
         }
       `}</style>
-    </section>
+    </div>
   );
 };
 

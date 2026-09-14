@@ -10,30 +10,34 @@ import BookShowcase from './components/BookShowcase'
 import Contact from './components/Contact'
 import MatrixBackground from './components/MatrixBackground'
 import CyberCLI from './components/CyberCLI'
+import CustomCursor from './components/CustomCursor'
+import SmoothScroll from './components/SmoothScroll'
 import './PrintStyles.css'
 
 function App() {
   return (
-    <div className="app">
-      <MatrixBackground />
-      <div className="bg-blobs">
-        <div className="blob blob-1"></div>
-        <div className="blob blob-2" style={{ background: 'radial-gradient(circle, rgba(0, 255, 65, 0.1) 0%, transparent 70%)' }}></div>
-      </div>
+    <SmoothScroll>
+      <div className="app">
+        <CustomCursor />
+        <MatrixBackground />
+        <div className="bg-blobs">
+          <div className="blob blob-1"></div>
+          <div className="blob blob-2" style={{ background: 'radial-gradient(circle, rgba(0, 255, 65, 0.1) 0%, transparent 70%)' }}></div>
+        </div>
 
-      <Navbar />
+        <Navbar />
 
-      <main>
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Projects />
-        <BookShowcase />
-        <Contact />
-      </main>
+        <main>
+          <Hero />
+          <About />
+          <Experience />
+          <Skills />
+          <Projects />
+          <BookShowcase />
+          <Contact />
+        </main>
 
-      <CyberCLI />
+        <CyberCLI />
 
       <footer className="container footer">
         <div className="footer-top">
@@ -207,7 +211,8 @@ function App() {
           }
         }
       `}</style>
-    </div>
+      </div>
+    </SmoothScroll>
   )
 }
 
