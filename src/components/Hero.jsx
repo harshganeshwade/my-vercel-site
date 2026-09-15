@@ -6,10 +6,17 @@ const Hero = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [magneticBtn1, setMagneticBtn1] = useState({ x: 0, y: 0 });
   const [magneticBtn2, setMagneticBtn2] = useState({ x: 0, y: 0 });
+  const [isDesktop, setIsDesktop] = useState(true);
 
-  // Smooth mouse move 3D parallax tracking
   useEffect(() => {
+    const checkDesktop = () => {
+      setIsDesktop(window.innerWidth > 768 && !window.matchMedia('(pointer: coarse)').matches);
+    };
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+
     const handleMouseMove = (e) => {
+      if (window.innerWidth <= 768) return;
       const { innerWidth, innerHeight } = window;
       const x = (e.clientX - innerWidth / 2) / (innerWidth / 2);
       const y = (e.clientY - innerHeight / 2) / (innerHeight / 2);
@@ -17,14 +24,18 @@ const Hero = () => {
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('resize', checkDesktop);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
-  // Magnetic button hover
+  // Magnetic button hover (desktop only)
   const handleMagneticMove = (e, setBtnState) => {
+    if (!isDesktop) return;
     const rect = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - (rect.left + rect.width / 2)) * 0.3;
-    const y = (e.clientY - (rect.top + rect.height / 2)) * 0.3;
+    const x = (e.clientX - (rect.left + rect.width / 2)) * 0.25;
+    const y = (e.clientY - (rect.top + rect.height / 2)) * 0.25;
     setBtnState({ x, y });
   };
 
@@ -34,31 +45,33 @@ const Hero = () => {
 
   return (
     <section id="hero" className="section hero">
-      {/* Background HUD Grid */}
-      <div 
-        className="hero-bg-hud"
-        style={{
-          transform: `translate(${mousePos.x * -10}px, ${mousePos.y * -10}px)`
-        }}
-      >
-        <div className="hud-corner top-left">[SYS_INIT: OK]</div>
-        <div className="hud-corner top-right">[RADAR: 360° ONLINE]</div>
-        <div className="hud-watermark">PURPLE_TEAM_ALPHA</div>
-      </div>
+      {/* Background HUD Grid (Desktop only) */}
+      {isDesktop && (
+        <div 
+          className="hero-bg-hud"
+          style={{
+            transform: `translate(${mousePos.x * -10}px, ${mousePos.y * -10}px)`
+          }}
+        >
+          <div className="hud-corner top-left">[SYS_INIT: OK]</div>
+          <div className="hud-corner top-right">[RADAR: 360° ONLINE]</div>
+          <div className="hud-watermark">PURPLE_TEAM_ALPHA</div>
+        </div>
+      )}
 
       <div className="container hero-container">
         <div 
           className="hero-content"
-          style={{
+          style={isDesktop ? {
             transform: `translate(${mousePos.x * 5}px, ${mousePos.y * 5}px)`
-          }}
+          } : undefined}
         >
-          {/* 3D Visual Profile Image with Dual Rotating Cyber Rings */}
+          {/* Visual Profile Image with Dual Rotating Cyber Rings */}
           <div 
             className="hero-image-wrapper"
-            style={{
-              transform: `perspective(800px) rotateX(${mousePos.y * -12}deg) rotateY(${mousePos.x * 12}deg)`
-            }}
+            style={isDesktop ? {
+              transform: `perspective(800px) rotateX(${mousePos.y * -10}deg) rotateY(${mousePos.x * 10}deg)`
+            } : undefined}
           >
             <div className="hero-image-ring-outer"></div>
             <div className="hero-image-ring-inner"></div>
@@ -73,13 +86,10 @@ const Hero = () => {
           {/* Tactical Cyber Badge */}
           <div className="hero-badge-wrap">
             <span className="badge cyber-badge">
-              <Terminal size={14} className="badge-icon" />
+              <Terminal size={13} className="badge-icon" />
               <span className="badge-words">
-                <span>Cybersecurity Enthusiast</span>
-                <span className="badge-sep">/</span>
-                <span>VAPT & Purple Team</span>
-                <span className="badge-sep">/</span>
-                <span>SOC & SIEM</span>
+                <span className="desktop-badge-text">Cybersecurity Enthusiast / VAPT & Purple Team / SOC & SIEM</span>
+                <span className="mobile-badge-text">VAPT • PURPLE TEAM • SOC</span>
               </span>
             </span>
           </div>
@@ -93,26 +103,26 @@ const Hero = () => {
 
           {/* Status Tags */}
           <div className="hero-status-tags">
-            <span className="hero-status-tag">📍 Sangli, Maharashtra</span>
+            <span className="hero-status-tag">📍 Sangli, MH</span>
             <span className="hero-status-tag">⚡ VAPT & Purple Teaming</span>
             <span className="hero-status-tag">🛡️ SOC & SIEM</span>
             <span className="hero-status-tag">📖 Published Author (2 Books)</span>
           </div>
 
-          {/* Prominent High-Visibility Magnetic CTA Buttons */}
+          {/* Prominent High-Visibility CTA Buttons */}
           <div className="hero-btns">
             <a 
               href="#projects" 
               className="btn btn-primary magnetic-btn"
               onMouseMove={(e) => handleMagneticMove(e, setMagneticBtn1)}
               onMouseLeave={() => handleMagneticLeave(setMagneticBtn1)}
-              style={{
+              style={isDesktop ? {
                 transform: `translate(${magneticBtn1.x}px, ${magneticBtn1.y}px)`
-              }}
+              } : undefined}
             >
               <span className="btn-glow-layer"></span>
               <span className="btn-text">
-                VIEW PROJECTS <ArrowRight size={17} />
+                VIEW PROJECTS <ArrowRight size={16} />
               </span>
             </a>
 
@@ -123,14 +133,14 @@ const Hero = () => {
               className="btn btn-outline magnetic-btn"
               onMouseMove={(e) => handleMagneticMove(e, setMagneticBtn2)}
               onMouseLeave={() => handleMagneticLeave(setMagneticBtn2)}
-              style={{
+              style={isDesktop ? {
                 transform: `translate(${magneticBtn2.x}px, ${magneticBtn2.y}px)`
-              }}
+              } : undefined}
               title="Access Dedicated Resumes (3 Roles) on Google Drive"
             >
               <span className="btn-glow-layer outline"></span>
               <span className="btn-text">
-                ACCESS RESUMES (DRIVE) <ExternalLink size={17} />
+                ACCESS RESUMES (DRIVE) <ExternalLink size={16} />
               </span>
             </a>
           </div>
@@ -150,26 +160,37 @@ const Hero = () => {
         .hero {
           min-height: 90vh;
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
           padding-top: 5.5rem;
           padding-bottom: 2.5rem;
           position: relative;
           overflow: hidden;
+          width: 100%;
         }
 
         .hero-container {
           position: relative;
           z-index: 2;
           width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto;
         }
 
         .hero-content {
           max-width: 860px;
+          width: 100%;
           margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
           text-align: center;
           transition: transform 0.12s ease-out;
-          will-change: transform;
         }
 
         /* Floating Parallax HUD */
@@ -208,11 +229,11 @@ const Hero = () => {
           user-select: none;
         }
 
-        /* Avatar 3D Wrapper */
+        /* Avatar Wrapper */
         .hero-image-wrapper {
           position: relative;
-          width: 140px;
-          height: 140px;
+          width: 130px;
+          height: 130px;
           margin: 0 auto 1.2rem;
           padding: 6px;
           display: flex;
@@ -276,6 +297,7 @@ const Hero = () => {
           gap: 5px;
           z-index: 3;
           box-shadow: 0 0 12px rgba(0, 229, 163, 0.3);
+          white-space: nowrap;
         }
 
         .hud-status-pulse {
@@ -317,12 +339,17 @@ const Hero = () => {
 
         /* Cyber Badge */
         .hero-badge-wrap {
-          margin-bottom: 0.8rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          margin: 0 auto 0.8rem;
         }
 
         .cyber-badge {
           display: inline-flex;
           align-items: center;
+          justify-content: center;
           gap: 6px;
           padding: 0.35rem 0.9rem;
           background: rgba(0, 229, 163, 0.04);
@@ -335,26 +362,34 @@ const Hero = () => {
           box-shadow: 0 0 15px rgba(0, 229, 163, 0.1);
         }
 
-        .badge-icon {
-          color: var(--primary);
+        .desktop-badge-text {
+          display: inline;
+        }
+        .mobile-badge-text {
+          display: none;
         }
 
-        .badge-sep {
-          margin: 0 5px;
-          opacity: 0.4;
+        .badge-icon {
+          color: var(--primary);
+          flex-shrink: 0;
         }
 
         /* Headline */
         .hero-title {
-          font-size: clamp(2.4rem, 6vw, 4rem);
+          font-size: clamp(2rem, 5.5vw, 3.8rem);
           font-weight: 800;
           letter-spacing: -1px;
-          margin-bottom: 0.6rem;
+          margin: 0 auto 0.6rem;
+          text-align: center;
+          width: 100%;
+          display: flex;
+          justify-content: center;
         }
 
-        /* Glitch Animation */
         .glitch-wrapper {
           position: relative;
+          display: inline-flex;
+          justify-content: center;
         }
 
         .glitch {
@@ -362,6 +397,8 @@ const Hero = () => {
           color: var(--primary);
           font-weight: 800;
           text-shadow: 0 0 20px rgba(0, 229, 163, 0.4);
+          display: inline-block;
+          text-align: center;
         }
 
         .glitch::before,
@@ -411,10 +448,12 @@ const Hero = () => {
         .hero-status-tags {
           display: flex;
           justify-content: center;
+          align-items: center;
           flex-wrap: wrap;
           gap: 0.5rem;
-          margin-top: 0.4rem;
-          margin-bottom: 1.5rem;
+          margin: 0.4rem auto 1.5rem;
+          width: 100%;
+          max-width: 600px;
         }
 
         .hero-status-tag {
@@ -426,6 +465,9 @@ const Hero = () => {
           padding: 0.25rem 0.65rem;
           border-radius: 20px;
           transition: all 0.25s ease;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .hero-status-tag:hover {
@@ -435,13 +477,16 @@ const Hero = () => {
           transform: translateY(-2px);
         }
 
-        /* Prominent Magnetic CTA Buttons */
+        /* Buttons */
         .hero-btns {
           display: flex;
           justify-content: center;
-          gap: 1.5rem;
+          align-items: center;
+          gap: 1.2rem;
           flex-wrap: wrap;
-          margin-top: 1rem;
+          margin: 1rem auto 0;
+          width: 100%;
+          max-width: 500px;
           position: relative;
           z-index: 10;
         }
@@ -451,7 +496,7 @@ const Hero = () => {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          padding: 0.8rem 1.8rem;
+          padding: 0.8rem 1.6rem;
           border-radius: 6px;
           font-family: var(--font-heading);
           font-size: 0.82rem;
@@ -468,7 +513,10 @@ const Hero = () => {
           z-index: 2;
           display: flex;
           align-items: center;
+          justify-content: center;
           gap: 8px;
+          white-space: nowrap;
+          width: 100%;
         }
 
         .btn-glow-layer {
@@ -565,11 +613,113 @@ const Hero = () => {
           box-shadow: 0 0 15px var(--primary-glow);
         }
 
+        /* Phone & Tablet Responsive Overrides */
         @media (max-width: 768px) {
-          .hud-corner { display: none; }
-          .hero-btns { flex-direction: column; width: 100%; max-width: 300px; margin-left: auto; margin-right: auto; }
-          .hero-image-wrapper { width: 130px; height: 130px; }
-          .hero-title { font-size: 2.2rem; }
+          .hero {
+            min-height: auto;
+            padding-top: 4.8rem;
+            padding-bottom: 2rem;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+          }
+          .hero-container {
+            padding: 0 0.8rem;
+            width: 100%;
+            align-items: center;
+          }
+          .hero-content {
+            width: 100%;
+            padding: 0;
+            align-items: center;
+            justify-content: center;
+          }
+          .hero-image-wrapper {
+            width: 105px;
+            height: 105px;
+            margin: 0 auto 0.9rem;
+          }
+          .hero-image-ring-outer {
+            inset: -4px;
+          }
+          .hud-status-badge {
+            bottom: -6px;
+            padding: 2px 6px;
+          }
+          .hud-status-text {
+            font-size: 0.58rem;
+          }
+          .hero-badge-wrap {
+            margin: 0 auto 0.6rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+          }
+          .desktop-badge-text {
+            display: none;
+          }
+          .mobile-badge-text {
+            display: inline;
+          }
+          .cyber-badge {
+            font-size: 0.68rem;
+            padding: 0.28rem 0.65rem;
+            max-width: 90vw;
+          }
+          .hero-title {
+            font-size: clamp(1.2rem, 5.2vw, 1.65rem);
+            letter-spacing: 0px;
+            margin: 0 auto 0.7rem;
+            line-height: 1.25;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+          }
+          .glitch-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+          }
+          .glitch {
+            text-align: center;
+          }
+          .hero-status-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.35rem;
+            width: 100%;
+            max-width: 320px;
+            margin: 0.3rem auto 1.3rem;
+          }
+          .hero-status-tag {
+            font-size: 0.65rem;
+            padding: 0.22rem 0.5rem;
+            border-radius: 12px;
+            white-space: nowrap;
+          }
+          .hero-btns {
+            flex-direction: column;
+            width: 100%;
+            max-width: 300px;
+            margin: 0.6rem auto 0;
+            gap: 0.75rem;
+            align-items: center;
+            justify-content: center;
+          }
+          .magnetic-btn {
+            width: 100%;
+            justify-content: center;
+            padding: 0.85rem 1.2rem;
+            font-size: 0.82rem;
+          }
+          .hero-transition-bridge {
+            position: relative;
+            bottom: auto;
+            margin-top: 1.8rem;
+          }
         }
       `}</style>
     </section>

@@ -12,12 +12,14 @@ import MatrixBackground from './components/MatrixBackground'
 import CyberCLI from './components/CyberCLI'
 import CustomCursor from './components/CustomCursor'
 import SmoothScroll from './components/SmoothScroll'
+import EntryPreloader from './components/EntryPreloader'
 import './PrintStyles.css'
 
 function App() {
   return (
     <SmoothScroll>
       <div className="app">
+        <EntryPreloader />
         <CustomCursor />
         <MatrixBackground />
         <div className="bg-blobs">

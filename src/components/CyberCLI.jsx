@@ -564,19 +564,18 @@ const CyberCLI = () => {
           to { opacity: 1; transform: scale(1); }
         }
 
-        @media (max-width: 600px) {
+        
+        @media (max-width: 768px) {
           .terminal-hud-trigger {
-            bottom: 16px;
-            right: 16px;
-            padding: 8px 12px;
+            display: none !important;
           }
           .terminal-cli-window {
+            width: 95vw;
             height: 75vh;
-          }
-          .terminal-title {
-            font-size: 0.7rem;
+            max-height: 80vh;
           }
         }
+
       `}</style>
     </>
   );

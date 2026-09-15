@@ -189,6 +189,24 @@ const CustomCursor = () => {
           from { opacity: 0; transform: scale(0.8); }
           to { opacity: 1; transform: scale(1); }
         }
+      
+        @media (hover: none) and (pointer: coarse) {
+          .custom-cursor, .custom-cursor-follower {
+            display: none !important;
+          }
+        }
+
+      
+        @media (max-width: 768px), (hover: none), (pointer: coarse) {
+          .custom-cursor-dot, 
+          .custom-cursor-ring {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+          }
+        }
+
       `}</style>
     </>
   );

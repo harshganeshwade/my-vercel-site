@@ -208,15 +208,34 @@ const About = () => {
           letter-spacing: 1px;
         }
 
-        @media (max-width: 968px) {
+                @media (max-width: 968px) {
           .about-grid {
             grid-template-columns: 1fr;
-            gap: 3rem;
+            gap: 2rem;
           }
           
           .about-image-container {
-            max-width: 300px;
+            max-width: 240px;
             margin: 0 auto;
+          }
+        }
+
+        @media (max-width: 580px) {
+          .about-stats {
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 0.8rem;
+          }
+          .stat-card {
+            padding: 0.75rem;
+          }
+          .stat-num {
+            font-size: 1.25rem;
+          }
+          .stat-label {
+            font-size: 0.68rem;
+          }
+          .about-text p {
+            font-size: 0.88rem;
           }
         }
       `}</style>

@@ -663,6 +663,38 @@ const BookShowcase = () => {
           box-shadow: 0 0 20px var(--primary-glow);
           transform: translateY(-2px);
         }
+              @media (max-width: 768px) {
+          .book-showcase-section {
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+          }
+          .books-3d-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+          }
+          .book-card-3d {
+            padding: 1.2rem;
+            gap: 1.2rem;
+          }
+          .book-3d-mockup {
+            width: 180px;
+            height: 245px;
+          }
+          .book-actions {
+            flex-direction: column;
+            width: 100%;
+          }
+          .book-actions > * {
+            width: 100%;
+            justify-content: center;
+          }
+          .excerpt-modal-body {
+            padding: 1.2rem;
+          }
+          .excerpt-modal-header {
+            padding: 1rem;
+          }
+        }
       `}</style>
     </section>
   );

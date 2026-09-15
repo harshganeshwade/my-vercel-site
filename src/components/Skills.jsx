@@ -211,6 +211,22 @@ const Skills = () => {
           0% { transform: translateX(-100%); }
           100% { transform: translateX(100%); }
         }
+              @media (max-width: 680px) {
+          .skills-grid {
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+          }
+          .skill-card {
+            padding: 1.2rem;
+          }
+          .skill-header {
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+          }
+          .skill-info h3 {
+            font-size: 1.1rem;
+          }
+        }
       `}</style>
     </section>
   )

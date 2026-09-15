@@ -364,12 +364,28 @@ const Contact = () => {
         .success.terminal-msg { background: rgba(34, 197, 94, 0.1); border: 1px solid #22c55e; color: #22c55e; }
         .error.terminal-msg { background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; color: #ef4444; }
 
-        @media (max-width: 968px) {
+        
+        @media (max-width: 768px) {
           .contact-grid {
             grid-template-columns: 1fr;
-            gap: 4rem;
+            gap: 2rem;
+          }
+          .terminal-log {
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.75rem;
+          }
+          .cyber-input-group input,
+          .cyber-input-group textarea {
+            font-size: 16px !important; /* Prevents auto-zoom on iOS Safari */
+            padding: 0.75rem;
+          }
+          .cyber-btn {
+            padding: 0.85rem 1.2rem;
+            font-size: 0.82rem;
           }
         }
+
       `}</style>
     </section>
   )

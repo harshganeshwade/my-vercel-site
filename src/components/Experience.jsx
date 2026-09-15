@@ -949,35 +949,84 @@ const Experience = () => {
                     color: var(--text-primary);
                 }
 
+                
                 @media (max-width: 768px) {
                     .experience-grid {
                         grid-template-columns: 1fr;
+                        gap: 1.5rem;
+                    }
+                    .timeline-item {
+                        padding: 1.1rem;
+                    }
+                    .certs-section-header {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 0.5rem;
+                    }
+                    .certs-main-title {
+                        font-size: 1.1rem;
+                    }
+                    .cert-filter-pills {
+                        overflow-x: auto;
+                        flex-wrap: nowrap;
+                        justify-content: flex-start;
+                        padding-bottom: 0.5rem;
+                        -webkit-overflow-scrolling: touch;
+                        margin-bottom: 1.2rem;
+                    }
+                    .cert-filter-chip {
+                        white-space: nowrap;
+                        flex-shrink: 0;
+                        padding: 0.35rem 0.75rem;
+                        font-size: 0.68rem;
                     }
                     .cert-ledger-grid {
                         grid-template-columns: 1fr;
+                        gap: 0.8rem;
                     }
                     .cert-ledger-row {
                         flex-direction: column;
                         align-items: flex-start;
                         gap: 0.8rem;
+                        padding: 1rem;
+                    }
+                    .ledger-title {
+                        white-space: normal;
+                        word-break: break-word;
+                        font-size: 0.88rem;
+                        line-height: 1.35;
+                    }
+                    .ledger-issuer {
+                        white-space: normal;
+                        word-break: break-word;
+                        font-size: 0.75rem;
                     }
                     .ledger-right {
                         width: 100%;
                         flex-direction: row;
                         justify-content: space-between;
                         align-items: center;
-                        padding-top: 0.5rem;
-                        border-top: 1px solid rgba(255, 255, 255, 0.05);
+                        padding-top: 0.6rem;
+                        border-top: 1px solid rgba(255, 255, 255, 0.06);
+                    }
+                    .ledger-view-btn {
+                        padding: 0.35rem 0.8rem;
+                        font-size: 0.72rem;
                     }
                     .cert-modal-header {
                         flex-direction: column;
                         text-align: center;
+                        padding: 1rem;
+                    }
+                    .cert-modal-body {
+                        padding: 1rem;
                     }
                     .cert-modal-footer-info {
                         flex-direction: column;
                         align-items: flex-start;
                     }
                 }
+
             `}</style>
         </section>
     )

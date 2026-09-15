@@ -1043,7 +1043,27 @@ const Projects = () => {
           box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
 
-        @media (max-width: 768px) {
+                @media (max-width: 768px) {
+          .project-filter-tabs {
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            padding-bottom: 0.5rem;
+            -webkit-overflow-scrolling: touch;
+          }
+          .filter-tab-btn {
+            white-space: nowrap;
+            flex-shrink: 0;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.72rem;
+          }
+          .projects-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+          }
+          .project-card {
+            padding: 1.2rem;
+          }
           .modal-top-banner {
             grid-template-columns: 1fr;
           }
