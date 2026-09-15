@@ -42,52 +42,58 @@ const Hero = () => {
         scrollTrigger: {
           trigger: heroSceneRef.current,
           start: 'top top',
-          end: '+=130%',
+          end: '+=120%',
           pin: heroPinRef.current,
           scrub: 1.1,
           anticipatePin: 1,
         }
       });
 
-      // 01. Typography spreads apart & HUD drifts
+      // 01. Typography spreads apart & HUD drifts on deep scroll
       tl.to([titleLeftRef.current], {
-        x: -120,
-        opacity: 0.15,
-        letterSpacing: '12px',
+        x: -90,
+        opacity: 0.2,
+        letterSpacing: '8px',
         ease: 'power2.out',
-      }, 0);
-
-      tl.to([titleRightRef.current], {
-        x: 120,
-        opacity: 0.15,
-        letterSpacing: '12px',
-        ease: 'power2.out',
-      }, 0);
-
-      tl.to(hudElementsRef.current, {
-        scale: 1.3,
-        opacity: 0,
-        y: -40,
-        ease: 'power2.out',
-      }, 0);
-
-      tl.to([badgesRef.current, ctaRef.current], {
-        opacity: 0,
-        y: 30,
-        scale: 0.95,
-        ease: 'power2.out',
-      }, 0);
-
-      // 02. Main visual zooms toward viewer with depth
-      tl.to(avatarWrapperRef.current, {
-        scale: 1.55,
-        z: 100,
-        opacity: 0.9,
-        filter: 'drop-shadow(0 0 45px rgba(0, 255, 65, 0.6))',
-        ease: 'power1.inOut',
       }, 0.2);
 
-      // 03. Scrim dissolve into next section
+      tl.to([titleRightRef.current], {
+        x: 90,
+        opacity: 0.2,
+        letterSpacing: '8px',
+        ease: 'power2.out',
+      }, 0.2);
+
+      tl.to(hudElementsRef.current, {
+        scale: 1.2,
+        opacity: 0,
+        y: -30,
+        ease: 'power2.out',
+      }, 0.2);
+
+      tl.to([badgesRef.current], {
+        opacity: 0,
+        y: -20,
+        ease: 'power2.out',
+      }, 0.3);
+
+      // 02. Buttons gently fade out ONLY towards the end of the scroll transition
+      tl.to(ctaRef.current, {
+        opacity: 0,
+        y: 20,
+        scale: 0.95,
+        ease: 'power2.out',
+      }, 0.5);
+
+      // 03. Main visual zooms toward viewer with depth
+      tl.to(avatarWrapperRef.current, {
+        scale: 1.4,
+        opacity: 0.9,
+        filter: 'drop-shadow(0 0 35px rgba(0, 255, 65, 0.6))',
+        ease: 'power1.inOut',
+      }, 0.3);
+
+      // 04. Scrim dissolve into next section
       tl.to(scrimOverlayRef.current, {
         opacity: 1,
         backdropFilter: 'blur(10px)',
@@ -184,10 +190,7 @@ const Hero = () => {
               <span className="hero-status-tag">📖 Published Author (2 Books)</span>
             </div>
 
-            {/* Interactive Network Graph */}
-            <SpiderWeb />
-
-            {/* Magnetic CTA Buttons */}
+            {/* Magnetic CTA Buttons - Positioned ABOVE SpiderWeb for immediate visibility */}
             <div ref={ctaRef} className="hero-btns">
               <a 
                 href="#projects" 
@@ -222,6 +225,9 @@ const Hero = () => {
                 </span>
               </a>
             </div>
+
+            {/* Interactive Network Graph */}
+            <SpiderWeb />
           </div>
         </div>
 
@@ -229,7 +235,7 @@ const Hero = () => {
         <div className="hero-transition-bridge">
           <a href="#about" className="scroll-bridge-trigger" aria-label="Scroll to About section">
             <span className="bridge-text">SCROLL TO ENTER</span>
-            <ChevronDown size={18} className="bridge-arrow" />
+            <ChevronDown size={16} className="bridge-arrow" />
           </a>
           <div className="bridge-gradient-glow"></div>
         </div>
@@ -238,11 +244,11 @@ const Hero = () => {
       <style>{`
         .hero-scene-track {
           position: relative;
-          height: 180vh;
+          height: 160vh;
         }
 
         .hero-pin-viewport {
-          min-height: 100vh;
+          height: 100vh;
           width: 100%;
           display: flex;
           flex-direction: column;
@@ -250,8 +256,8 @@ const Hero = () => {
           justify-content: center;
           position: relative;
           overflow: hidden;
-          padding-top: 6.5rem;
-          padding-bottom: 2rem;
+          padding-top: 5.5rem;
+          padding-bottom: 1.5rem;
         }
 
         .hero-scrim-overlay {
@@ -267,6 +273,7 @@ const Hero = () => {
         .hero-container {
           position: relative;
           z-index: 2;
+          width: 100%;
         }
 
         .hero-content {
@@ -295,8 +302,8 @@ const Hero = () => {
           letter-spacing: 1.5px;
         }
 
-        .hud-corner.top-left { top: 14%; left: 6%; }
-        .hud-corner.top-right { top: 14%; right: 6%; }
+        .hud-corner.top-left { top: 12%; left: 5%; }
+        .hud-corner.top-right { top: 12%; right: 5%; }
 
         .hud-watermark {
           position: absolute;
@@ -316,10 +323,10 @@ const Hero = () => {
         /* Avatar 3D Wrapper */
         .hero-image-wrapper {
           position: relative;
-          width: 135px;
-          height: 135px;
-          margin: 0 auto 1rem;
-          padding: 6px;
+          width: 130px;
+          height: 130px;
+          margin: 0 auto 0.8rem;
+          padding: 5px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -354,13 +361,13 @@ const Hero = () => {
           object-position: center 15%;
           border-radius: 50%;
           border: 1px solid var(--glass-border);
-          box-shadow: 0 0 30px var(--primary-glow);
+          box-shadow: 0 0 25px var(--primary-glow);
           z-index: 1;
         }
 
         .scanline-circle {
           position: absolute;
-          inset: 6px;
+          inset: 5px;
           border-radius: 50%;
           background: linear-gradient(to bottom, transparent, var(--primary-glow), transparent);
           background-size: 100% 200%;
@@ -426,7 +433,7 @@ const Hero = () => {
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          padding: 0.35rem 0.9rem;
+          padding: 0.3rem 0.8rem;
           background: rgba(0, 255, 65, 0.04);
           border: 1px solid var(--primary-glow);
           border-radius: 100px;
@@ -434,7 +441,7 @@ const Hero = () => {
           font-family: var(--font-heading);
           font-weight: 600;
           color: var(--primary);
-          margin-bottom: 0.8rem;
+          margin-bottom: 0.6rem;
           box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
         }
 
@@ -449,10 +456,10 @@ const Hero = () => {
 
         /* Kinetic Splitting Headline */
         .kinetic-headline {
-          font-size: clamp(2rem, 5.5vw, 3.4rem);
+          font-size: clamp(2rem, 5vw, 3.2rem);
           font-weight: 800;
           letter-spacing: -1px;
-          margin-bottom: 0.6rem;
+          margin-bottom: 0.4rem;
           display: flex;
           justify-content: center;
           gap: 0.7rem;
@@ -471,8 +478,8 @@ const Hero = () => {
           display: flex;
           justify-content: center;
           flex-wrap: wrap;
-          gap: 0.5rem;
-          margin-top: 0.4rem;
+          gap: 0.4rem;
+          margin-top: 0.3rem;
           margin-bottom: 0.8rem;
         }
 
@@ -482,7 +489,7 @@ const Hero = () => {
           color: var(--text-secondary);
           background: rgba(0, 255, 65, 0.04);
           border: 1px solid var(--glass-border);
-          padding: 0.25rem 0.65rem;
+          padding: 0.2rem 0.6rem;
           border-radius: 20px;
           transition: all 0.25s ease;
         }
@@ -494,13 +501,16 @@ const Hero = () => {
           transform: translateY(-2px);
         }
 
-        /* Magnetic CTA Buttons */
+        /* Prominent Magnetic CTA Buttons */
         .hero-btns {
           display: flex;
           justify-content: center;
           gap: 1.2rem;
           flex-wrap: wrap;
-          margin-top: 1rem;
+          margin-top: 0.5rem;
+          margin-bottom: 0.5rem;
+          position: relative;
+          z-index: 10;
         }
 
         .magnetic-btn {
@@ -508,8 +518,16 @@ const Hero = () => {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+          padding: 0.7rem 1.6rem;
+          border-radius: 6px;
+          font-family: var(--font-heading);
+          font-size: 0.8rem;
+          font-weight: 700;
+          letter-spacing: 0.5px;
+          text-decoration: none;
+          transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background 0.3s ease;
           overflow: hidden;
+          cursor: pointer;
         }
 
         .magnetic-btn .btn-text {
@@ -532,20 +550,38 @@ const Hero = () => {
           opacity: 1;
         }
 
+        .btn-primary {
+          background: var(--primary);
+          color: #000;
+          border: 1px solid var(--primary);
+          box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+        }
+
         .btn-primary:hover {
-          box-shadow: 0 0 30px var(--primary-glow), 0 0 60px rgba(0, 255, 65, 0.25);
+          background: #33ff66;
+          box-shadow: 0 0 35px var(--primary-glow), 0 0 60px rgba(0, 255, 65, 0.3);
+          transform: translateY(-2px);
+        }
+
+        .btn-outline {
+          background: rgba(0, 255, 249, 0.05);
+          color: var(--text-primary);
+          border: 1px solid var(--accent);
+          box-shadow: 0 0 15px rgba(0, 255, 249, 0.15);
         }
 
         .btn-outline:hover {
+          background: rgba(0, 255, 249, 0.15);
           box-shadow: 0 0 25px rgba(0, 255, 249, 0.4);
-          border-color: var(--accent);
-          color: var(--accent);
+          border-color: #00fff9;
+          color: #00fff9;
+          transform: translateY(-2px);
         }
 
         /* Transition Bridge */
         .hero-transition-bridge {
           position: absolute;
-          bottom: 16px;
+          bottom: 10px;
           left: 50%;
           transform: translateX(-50%);
           display: flex;
@@ -558,7 +594,7 @@ const Hero = () => {
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 4px;
+          gap: 2px;
           text-decoration: none;
           color: var(--text-secondary);
           opacity: 0.6;
@@ -573,7 +609,7 @@ const Hero = () => {
 
         .bridge-text {
           font-family: var(--font-heading);
-          font-size: 0.65rem;
+          font-size: 0.6rem;
           letter-spacing: 2px;
         }
 
@@ -583,14 +619,14 @@ const Hero = () => {
 
         @keyframes arrowBounce {
           0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-          40% { transform: translateY(5px); }
-          60% { transform: translateY(3px); }
+          40% { transform: translateY(4px); }
+          60% { transform: translateY(2px); }
         }
 
         .bridge-gradient-glow {
           position: absolute;
-          bottom: -15px;
-          width: 300px;
+          bottom: -10px;
+          width: 250px;
           height: 1px;
           background: linear-gradient(90deg, transparent, var(--primary), transparent);
           box-shadow: 0 0 15px var(--primary-glow);
@@ -598,9 +634,9 @@ const Hero = () => {
 
         @media (max-width: 768px) {
           .hud-corner { display: none; }
-          .hero-btns { flex-direction: column; width: 100%; max-width: 320px; margin-left: auto; margin-right: auto; }
-          .hero-image-wrapper { width: 150px; height: 150px; }
-          .kinetic-headline { font-size: 2.2rem; }
+          .hero-btns { flex-direction: column; width: 100%; max-width: 300px; margin-left: auto; margin-right: auto; }
+          .hero-image-wrapper { width: 120px; height: 120px; }
+          .kinetic-headline { font-size: 2rem; }
         }
       `}</style>
     </div>
