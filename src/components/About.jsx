@@ -119,7 +119,7 @@ const About = () => {
           overflow: hidden;
           border-radius: 6px;
           border: 1px solid var(--primary-glow);
-          box-shadow: 0 0 25px rgba(0, 255, 65, 0.15);
+          box-shadow: 0 0 25px rgba(0, 229, 163, 0.15);
         }
 
         .profile-img {
@@ -187,7 +187,7 @@ const About = () => {
 
         .stat-bar {
           height: 4px;
-          background: rgba(0, 255, 65, 0.1);
+          background: rgba(0, 229, 163, 0.1);
           margin-top: 0.5rem;
           border-radius: 2px;
         }

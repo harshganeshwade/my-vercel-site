@@ -281,7 +281,7 @@ const BookShowcase = () => {
 
         .book-card-3d:hover {
           transform: translateY(-4px);
-          border-color: rgba(0, 255, 65, 0.3);
+          border-color: rgba(0, 229, 163, 0.3);
         }
 
         .book-topbar {
@@ -323,7 +323,7 @@ const BookShowcase = () => {
           position: relative;
           transform: rotateY(-18deg) rotateX(8deg);
           transform-style: preserve-3d;
-          box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 255, 65, 0.15);
+          box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(0, 229, 163, 0.15);
           transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
           border-radius: 3px 8px 8px 3px;
           cursor: pointer;
@@ -331,7 +331,7 @@ const BookShowcase = () => {
 
         .book-card-3d:hover .book-3d-mockup {
           transform: rotateY(-6deg) rotateX(2deg) scale(1.04);
-          box-shadow: 20px 25px 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 255, 65, 0.3);
+          box-shadow: 20px 25px 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 229, 163, 0.3);
         }
 
         .book-spine {
@@ -515,7 +515,7 @@ const BookShowcase = () => {
         }
 
         .book-cert-btn {
-          background: rgba(0, 255, 65, 0.05);
+          background: rgba(0, 229, 163, 0.05);
           color: var(--primary);
         }
 

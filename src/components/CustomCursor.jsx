@@ -138,8 +138,8 @@ const CustomCursor = () => {
                       left 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
                       background 0.3s ease,
                       border-color 0.3s ease;
-          background: rgba(0, 255, 65, 0.03);
-          box-shadow: 0 0 15px rgba(0, 255, 65, 0.15);
+          background: rgba(0, 229, 163, 0.03);
+          box-shadow: 0 0 15px rgba(0, 229, 163, 0.15);
         }
 
         /* Pointer state on links / buttons */

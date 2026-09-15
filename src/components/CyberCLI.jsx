@@ -336,7 +336,7 @@ const CyberCLI = () => {
           align-items: center;
           gap: 8px;
           cursor: pointer;
-          box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+          box-shadow: 0 0 15px rgba(0, 229, 163, 0.2);
           backdrop-filter: blur(8px);
           transition: all 0.25s ease;
         }
@@ -349,7 +349,7 @@ const CyberCLI = () => {
         }
 
         .terminal-hud-shortcut {
-          background: rgba(0, 255, 65, 0.15);
+          background: rgba(0, 229, 163, 0.15);
           border: 1px solid var(--primary);
           color: var(--primary);
           padding: 1px 6px;
@@ -385,7 +385,7 @@ const CyberCLI = () => {
           background: rgba(8, 12, 16, 0.96);
           border: 1px solid var(--primary);
           border-radius: 8px;
-          box-shadow: 0 0 40px rgba(0, 255, 65, 0.25), inset 0 0 20px rgba(0, 255, 65, 0.05);
+          box-shadow: 0 0 40px rgba(0, 229, 163, 0.25), inset 0 0 20px rgba(0, 229, 163, 0.05);
           display: flex;
           flex-direction: column;
           overflow: hidden;
@@ -404,7 +404,7 @@ const CyberCLI = () => {
         .terminal-topbar {
           background: rgba(15, 23, 30, 0.95);
           padding: 10px 16px;
-          border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+          border-bottom: 1px solid rgba(0, 229, 163, 0.2);
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -516,7 +516,7 @@ const CyberCLI = () => {
         /* Quick Bar */
         .terminal-quickbar {
           background: rgba(12, 18, 24, 0.9);
-          border-top: 1px solid rgba(0, 255, 65, 0.15);
+          border-top: 1px solid rgba(0, 229, 163, 0.15);
           padding: 8px 16px;
           display: flex;
           align-items: center;
@@ -531,7 +531,7 @@ const CyberCLI = () => {
         }
 
         .terminal-quickbar button {
-          background: rgba(0, 255, 65, 0.08);
+          background: rgba(0, 229, 163, 0.08);
           border: 1px solid var(--glass-border);
           color: var(--text-secondary);
           padding: 3px 8px;
@@ -547,13 +547,13 @@ const CyberCLI = () => {
         }
 
         .terminal-quickbar button:hover {
-          background: rgba(0, 255, 65, 0.2);
+          background: rgba(0, 229, 163, 0.2);
           border-color: var(--primary);
           color: var(--primary);
         }
 
         .terminal-quickbar button.highlight-cmd {
-          background: rgba(0, 255, 65, 0.15);
+          background: rgba(0, 229, 163, 0.15);
           border-color: var(--primary);
           color: var(--primary);
           font-weight: 700;

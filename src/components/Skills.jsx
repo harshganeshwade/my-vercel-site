@@ -27,7 +27,7 @@ const Skills = () => {
         'HTML5 & CSS3',
         'PL/SQL & Bash'
       ],
-      color: '#00ff41' // Green
+      color: '#00e5a3' // Green
     },
     {
       title: 'AI / ML & Computer Vision',
@@ -144,7 +144,7 @@ const Skills = () => {
 
         .skill-icon-box {
           color: var(--primary);
-          background: rgba(0, 255, 65, 0.05);
+          background: rgba(0, 229, 163, 0.05);
           padding: 10px;
           border-radius: 4px;
           border: 1px solid var(--primary-glow);
@@ -185,7 +185,7 @@ const Skills = () => {
 
         .skill-progress {
           height: 6px;
-          background: rgba(0, 255, 65, 0.05);
+          background: rgba(0, 229, 163, 0.05);
           border-radius: 3px;
           overflow: hidden;
           border: 1px solid var(--glass-border);

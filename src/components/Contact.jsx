@@ -229,7 +229,7 @@ const Contact = () => {
 
         .info-icon {
           color: var(--primary);
-          background: rgba(0, 255, 65, 0.05);
+          background: rgba(0, 229, 163, 0.05);
           padding: 10px;
           border: 1px solid var(--primary-glow);
           border-radius: 4px;

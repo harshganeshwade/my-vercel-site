@@ -22,7 +22,7 @@ function App() {
         <MatrixBackground />
         <div className="bg-blobs">
           <div className="blob blob-1"></div>
-          <div className="blob blob-2" style={{ background: 'radial-gradient(circle, rgba(0, 255, 65, 0.1) 0%, transparent 70%)' }}></div>
+          <div className="blob blob-2" style={{ background: 'radial-gradient(circle, rgba(0, 229, 163, 0.1) 0%, transparent 70%)' }}></div>
         </div>
 
         <Navbar />
@@ -119,7 +119,7 @@ function App() {
         }
 
         .return-top-btn {
-          background: rgba(0, 255, 65, 0.05);
+          background: rgba(0, 229, 163, 0.05);
           border: 1px solid var(--glass-border);
           color: var(--primary);
           padding: 0.4rem 0.9rem;
@@ -186,7 +186,7 @@ function App() {
           opacity: 1;
           color: var(--primary);
           border-color: var(--primary);
-          background: rgba(0, 255, 65, 0.05);
+          background: rgba(0, 229, 163, 0.05);
           transform: translateY(-3px);
           filter: drop-shadow(0 0 8px var(--primary-glow));
         }

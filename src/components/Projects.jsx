@@ -30,7 +30,7 @@ const Projects = () => {
       tags: ['Python', 'FastAPI', 'Random Forest', 'SHAP', 'D3.js', 'React'],
       image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop',
       github: 'https://github.com/harshganeshwade/bankguard.ai',
-      color: '#00ff41',
+      color: '#00e5a3',
       status: 'ENTERPRISE_GRADE',
       techSpecs: ['<10ms Inference', 'SHAP Explainability', 'D3.js Money Mule Graph', 'Zero-Knowledge Proof'],
       description: 'Next-generation AI-driven banking fraud detection system combining high-throughput ML classification with explainable AI and money mule network visualization.',
@@ -201,7 +201,7 @@ const Projects = () => {
       tags: ['React', 'MediaPipe', 'Webcam Vision', 'Canvas API', 'Vite'],
       image: airdrawImg,
       github: 'https://github.com/harshganeshwade/airdraw',
-      color: '#00ff41',
+      color: '#00e5a3',
       status: 'INTERACTIVE_AI',
       techSpecs: ['In-Air Gesture Drawing', 'Real-time Landmark Tracking', 'Custom Stroke Buffer', 'Touchless UI'],
       description: 'Contactless virtual drawing suite that turns webcam hand motions into smooth digital artwork without needing physical touch or styluses.',
@@ -512,7 +512,7 @@ const Projects = () => {
         }
 
         .filter-tab-btn {
-          background: rgba(0, 255, 65, 0.03);
+          background: rgba(0, 229, 163, 0.03);
           border: 1px solid var(--glass-border);
           color: var(--text-secondary);
           font-family: var(--font-heading);
@@ -541,7 +541,7 @@ const Projects = () => {
         .filter-tab-btn:hover {
           border-color: var(--primary);
           color: var(--primary);
-          background: rgba(0, 255, 65, 0.08);
+          background: rgba(0, 229, 163, 0.08);
           transform: translateY(-2px);
         }
 
@@ -570,14 +570,14 @@ const Projects = () => {
           flex-direction: column;
           justify-content: space-between;
           background: rgba(10, 25, 47, 0.45);
-          border: 1px solid rgba(0, 255, 65, 0.15);
+          border: 1px solid rgba(0, 229, 163, 0.15);
           transition: all 0.3s ease;
         }
 
         .project-card:hover {
           border-color: var(--primary);
           transform: translateY(-4px);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 65, 0.1);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 229, 163, 0.1);
         }
 
         .project-image-wrap {
@@ -747,10 +747,10 @@ const Projects = () => {
         }
 
         .project-action-link:hover {
-          background: rgba(0, 255, 65, 0.12);
+          background: rgba(0, 229, 163, 0.12);
           border-color: currentColor;
           transform: translateY(-2px);
-          box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+          box-shadow: 0 0 10px rgba(0, 229, 163, 0.2);
         }
 
         /* In-Page Architecture & Mission Brief Modal */
@@ -776,7 +776,7 @@ const Projects = () => {
           flex-direction: column;
           background: #070d14;
           border: 1px solid var(--primary);
-          box-shadow: 0 0 40px rgba(0, 255, 65, 0.25), inset 0 0 20px rgba(0, 255, 65, 0.05);
+          box-shadow: 0 0 40px rgba(0, 229, 163, 0.25), inset 0 0 20px rgba(0, 229, 163, 0.05);
           border-radius: 6px;
           overflow: hidden;
           position: relative;
@@ -827,7 +827,7 @@ const Projects = () => {
           display: inline-flex;
           align-items: center;
           gap: 0.5rem;
-          background: rgba(0, 255, 65, 0.1);
+          background: rgba(0, 229, 163, 0.1);
           border: 1px solid var(--primary);
           color: var(--primary);
           font-family: var(--font-heading);

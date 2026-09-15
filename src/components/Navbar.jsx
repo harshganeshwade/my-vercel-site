@@ -176,7 +176,7 @@ const Navbar = () => {
           font-size: 0.6rem;
           font-family: var(--font-heading);
           color: var(--primary);
-          background: rgba(0, 255, 65, 0.08);
+          background: rgba(0, 229, 163, 0.08);
           border: 1px solid var(--primary-glow);
           padding: 0.15rem 0.45rem;
           border-radius: 2px;
@@ -189,7 +189,7 @@ const Navbar = () => {
           white-space: nowrap;
           border: 1px solid var(--glass-border);
           padding: 0.35rem 0.8rem;
-          background: rgba(0, 255, 65, 0.03);
+          background: rgba(0, 229, 163, 0.03);
           border-radius: 2px;
         }
 
@@ -249,7 +249,7 @@ const Navbar = () => {
         }
 
         .nav-cli-btn {
-          background: rgba(0, 255, 65, 0.08);
+          background: rgba(0, 229, 163, 0.08);
           border: 1px solid var(--primary);
           color: var(--primary);
           padding: 0.3rem 0.7rem;
@@ -274,7 +274,7 @@ const Navbar = () => {
 
         .mobile-cli-btn {
           margin-top: 1.5rem;
-          background: rgba(0, 255, 65, 0.1);
+          background: rgba(0, 229, 163, 0.1);
           border: 1px solid var(--primary);
           color: var(--primary);
           padding: 0.8rem 1rem;
@@ -299,7 +299,7 @@ const Navbar = () => {
 
         .menu-icon-btn {
           display: none;
-          background: rgba(0, 255, 65, 0.08);
+          background: rgba(0, 229, 163, 0.08);
           border: 1px solid var(--glass-border);
           color: var(--primary);
           padding: 0.5rem;

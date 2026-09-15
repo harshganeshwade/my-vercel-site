@@ -428,7 +428,7 @@ const Experience = () => {
                     font-size: 0.7rem;
                     font-family: var(--font-heading);
                     color: var(--primary);
-                    background: rgba(0, 255, 65, 0.08);
+                    background: rgba(0, 229, 163, 0.08);
                     border: 1px solid var(--primary-glow);
                     padding: 0.35rem 0.8rem;
                     border-radius: 100px;
@@ -462,14 +462,14 @@ const Experience = () => {
                 .cert-filter-chip:hover {
                     border-color: var(--primary);
                     color: var(--primary);
-                    background: rgba(0, 255, 65, 0.05);
+                    background: rgba(0, 229, 163, 0.05);
                 }
 
                 .cert-filter-chip.active {
-                    background: rgba(0, 255, 65, 0.12);
+                    background: rgba(0, 229, 163, 0.12);
                     border-color: var(--primary);
                     color: var(--primary);
-                    box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+                    box-shadow: 0 0 15px rgba(0, 229, 163, 0.2);
                 }
 
                 .chip-count {
@@ -491,7 +491,7 @@ const Experience = () => {
                     align-items: center;
                     justify-content: space-between;
                     gap: 1rem;
-                    border: 1px solid rgba(0, 255, 65, 0.12);
+                    border: 1px solid rgba(0, 229, 163, 0.12);
                     background: rgba(10, 25, 47, 0.45);
                     transition: all 0.25s ease;
                 }
@@ -502,9 +502,9 @@ const Experience = () => {
 
                 .cert-ledger-row:hover {
                     border-color: var(--primary);
-                    background: rgba(0, 255, 65, 0.04);
+                    background: rgba(0, 229, 163, 0.04);
                     transform: translateX(4px);
-                    box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+                    box-shadow: 0 0 20px rgba(0, 229, 163, 0.1);
                 }
 
                 .ledger-left {
@@ -519,8 +519,8 @@ const Experience = () => {
                     width: 36px;
                     height: 36px;
                     border-radius: 6px;
-                    background: rgba(0, 255, 65, 0.08);
-                    border: 1px solid rgba(0, 255, 65, 0.25);
+                    background: rgba(0, 229, 163, 0.08);
+                    border: 1px solid rgba(0, 229, 163, 0.25);
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -559,9 +559,9 @@ const Experience = () => {
                 }
 
                 .cert-badge-tag.verified {
-                    color: #00ff41;
-                    border-color: rgba(0, 255, 65, 0.3);
-                    background: rgba(0, 255, 65, 0.06);
+                    color: #00e5a3;
+                    border-color: rgba(0, 229, 163, 0.3);
+                    background: rgba(0, 229, 163, 0.06);
                 }
 
                 .cert-badge-tag.participation {
@@ -617,7 +617,7 @@ const Experience = () => {
                     display: inline-flex;
                     align-items: center;
                     gap: 0.4rem;
-                    background: rgba(0, 255, 65, 0.08);
+                    background: rgba(0, 229, 163, 0.08);
                     border: 1px solid var(--primary);
                     color: var(--primary);
                     padding: 0.35rem 0.75rem;
@@ -724,7 +724,7 @@ const Experience = () => {
                     display: inline-flex;
                     align-items: center;
                     gap: 0.5rem;
-                    background: rgba(0, 255, 65, 0.08);
+                    background: rgba(0, 229, 163, 0.08);
                     border: 1px solid var(--primary);
                     color: var(--primary);
                     padding: 0.45rem 0.9rem;
@@ -779,7 +779,7 @@ const Experience = () => {
                     flex-direction: column;
                     background: #070d14;
                     border: 1px solid var(--primary);
-                    box-shadow: 0 0 40px rgba(0, 255, 65, 0.25), inset 0 0 20px rgba(0, 255, 65, 0.05);
+                    box-shadow: 0 0 40px rgba(0, 229, 163, 0.25), inset 0 0 20px rgba(0, 229, 163, 0.05);
                     border-radius: 6px;
                     overflow: hidden;
                     position: relative;
@@ -816,7 +816,7 @@ const Experience = () => {
                     display: inline-flex;
                     align-items: center;
                     gap: 0.5rem;
-                    background: rgba(0, 255, 65, 0.1);
+                    background: rgba(0, 229, 163, 0.1);
                     border: 1px solid var(--primary);
                     color: var(--primary);
                     font-family: var(--font-heading);

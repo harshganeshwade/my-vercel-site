@@ -1,17 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg-color: #050801;
+  --bg-color: #070a09;
   --text-primary: #f0f0f0;
-  --text-secondary: #00ff41;
-  --primary: #00ff41;
-  --primary-glow: rgba(0, 255, 65, 0.4);
-  --secondary: #008f11;
+  --text-secondary: #00e5a3;
+  --primary: #00e5a3;
+  --primary-glow: rgba(0, 229, 163, 0.4);
+  --secondary: #059669;
   --accent: #fbff00;
-  --glass: rgba(0, 20, 0, 0.3);
-  --glass-border: rgba(0, 255, 65, 0.2);
-  --glass-hover: rgba(0, 255, 65, 0.1);
-  --card-shadow: 0 0 20px rgba(0, 255, 65, 0.15);
+  --glass: rgba(6, 18, 14, 0.3);
+  --glass-border: rgba(0, 229, 163, 0.2);
+  --glass-hover: rgba(0, 229, 163, 0.1);
+  --card-shadow: 0 0 20px rgba(0, 229, 163, 0.15);
 
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --font-main: 'JetBrains Mono', 'Courier New', monospace;
@@ -33,7 +33,7 @@
   border-top: 25px solid #1a1a1a;
   position: relative;
   border-radius: 4px;
-  box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+  box-shadow: 0 0 20px rgba(0, 229, 163, 0.1);
 }
 
 .terminal-window::before {
@@ -153,12 +153,12 @@ ul {
   color: var(--primary);
   letter-spacing: 3px;
   text-transform: uppercase;
-  background: rgba(0, 255, 65, 0.05);
+  background: rgba(0, 229, 163, 0.05);
   border: 1px solid var(--glass-border);
   padding: 0.35rem 0.9rem;
   border-radius: 100px;
   margin-bottom: 1rem;
-  box-shadow: 0 0 15px rgba(0, 255, 65, 0.05);
+  box-shadow: 0 0 15px rgba(0, 229, 163, 0.05);
 }
 
 .section-title {
@@ -243,7 +243,7 @@ ul {
   position: absolute;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(0, 255, 65, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 229, 163, 0.15) 0%, transparent 70%);
   border-radius: 50%;
   filter: blur(80px);
 }
@@ -256,7 +256,7 @@ ul {
 .blob-2 {
   bottom: -10%;
   left: -10%;
-  background: radial-gradient(circle, rgba(0, 143, 17, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(5, 150, 105, 0.15) 0%, transparent 70%);
 }
 
 /* Scanline Effect */
@@ -268,7 +268,7 @@ body::after {
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 255, 65, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.01));
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 229, 163, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.01));
   z-index: 9999;
   background-size: 100% 4px, 3px 100%;
   pointer-events: none;
@@ -292,7 +292,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 2px;
-  background: rgba(0, 255, 65, 0.1);
+  background: rgba(0, 229, 163, 0.1);
   z-index: 10000;
   animation: scanline 8s linear infinite;
   pointer-events: none;
