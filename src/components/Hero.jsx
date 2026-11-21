@@ -106,13 +106,7 @@ const Hero = () => {
             <span className="hero-status-tag" style={{ borderColor: 'rgba(0, 255, 249, 0.4)', color: '#00fff9', background: 'rgba(0, 255, 249, 0.08)' }}>
               🛡️ SOC Analyst @ <strong>Maximus Infoware</strong> (Thane, MH)
             </span>
-            <span className="hero-status-tag" style={{ borderColor: 'rgba(0, 229, 163, 0.4)', color: 'var(--primary)', background: 'rgba(0, 229, 163, 0.06)' }}>
-              ⚔️ VAPT Intern @ <strong>UptoSkills</strong>
-            </span>
-            <span className="hero-status-tag" style={{ borderColor: 'rgba(251, 255, 0, 0.35)', color: '#fbff00', background: 'rgba(251, 255, 0, 0.05)' }}>
-              🔒 Ex-Intern @ <strong>Sunbeam Infotech</strong>
-            </span>
-            <span className="hero-status-tag">📍 Sangli, MH</span>
+            <span className="hero-status-tag">📍 Sangli (MH)</span>
             <span className="hero-status-tag">📖 Published Author (2 Books)</span>
           </div>
 
