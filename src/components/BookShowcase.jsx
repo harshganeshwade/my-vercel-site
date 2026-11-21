@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BookOpen, ExternalLink, Eye, Quote, CheckCircle2, Bookmark, ArrowRight, ChevronRight, X, ArrowLeft, ShieldCheck } from 'lucide-react';
 import bookPublishingCertImg from '../assets/certificates/book_publishing_cert.png';
+import KineticHeading from './KineticHeading';
 
 const BOOKS_DATA = [
   {
@@ -67,10 +68,11 @@ const BookShowcase = () => {
 
   return (
     <section id="publications" className="section container book-showcase-section">
-      <div className="section-header">
-        <span className="section-subtitle">Literary Works & Authorship</span>
-        <h2 className="section-title">Published <span className="gradient-text">Books & Works</span></h2>
-      </div>
+      <KineticHeading 
+        subtitle="Literary Works & Authorship"
+        title="Published"
+        highlight="Books & Works"
+      />
 
       <div className="books-3d-grid">
         {BOOKS_DATA.map((book) => (

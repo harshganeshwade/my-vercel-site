@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Briefcase, GraduationCap, Award, BookOpen, Eye, X, ArrowLeft, ShieldCheck, ExternalLink } from 'lucide-react'
+import KineticHeading from './KineticHeading'
 import adobeCertImg from '../assets/certificates/adobe_hackathon.png'
 import forageCertImg from '../assets/certificates/commonwealth_cybersecurity.png'
 import comptiaCertImg from '../assets/certificates/comptia_security_plus.png'
@@ -199,10 +200,11 @@ const Experience = () => {
 
     return (
         <section id="experience" className="section container">
-            <div className="section-header">
-                <span className="section-subtitle">Resume & Credentials</span>
-                <h2 className="section-title">Experience & <span className="gradient-text">Qualifications</span></h2>
-            </div>
+            <KineticHeading 
+                subtitle="Resume & Credentials"
+                title="Experience &"
+                highlight="Qualifications"
+            />
 
             {/* Top 3-Column Experience Grid */}
             <div className="experience-grid">

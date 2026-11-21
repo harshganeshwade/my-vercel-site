@@ -1,5 +1,6 @@
 import React from 'react'
 import { Layout, Terminal, Shield, Cpu, Database, Brain, Server, Layers } from 'lucide-react'
+import KineticHeading from './KineticHeading'
 
 const Skills = () => {
   const skills = [
@@ -84,10 +85,11 @@ const Skills = () => {
 
   return (
     <section id="skills" className="section container">
-      <div className="section-header">
-        <span className="section-subtitle">Expertise</span>
-        <h2 className="section-title">Technical <span className="gradient-text">Skills</span></h2>
-      </div>
+      <KineticHeading 
+        subtitle="Expertise"
+        title="Technical"
+        highlight="Skills"
+      />
 
       <div className="skills-grid">
         {skills.map((skill, index) => (

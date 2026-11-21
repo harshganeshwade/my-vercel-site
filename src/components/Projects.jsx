@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { ExternalLink, Github, ArrowUpRight, Shield, Brain, Layers, Eye, X, ArrowLeft, Terminal, Cpu, CheckCircle2, Lock, Radio } from 'lucide-react'
+import KineticHeading from './KineticHeading'
 import idsIpsImg from '../assets/ids_ips.png'
 import librarySystemImg from '../assets/library_system.png'
 import chatifyImg from '../assets/projects/chatify.png'
@@ -309,11 +310,12 @@ const Projects = () => {
 
   return (
     <section id="projects" className="section container">
-      <div className="section-header">
-        <span className="section-subtitle">Featured Engineering & Security Systems</span>
-        <h2 className="section-title">Selected <span className="gradient-text">Projects</span></h2>
-        <p className="section-desc">Authentic systems engineered by Harsh for autonomous incident response, AI fraud detection, computer vision, and secure full-stack software.</p>
-      </div>
+      <KineticHeading 
+        subtitle="Featured Engineering & Security Systems"
+        title="Selected"
+        highlight="Projects"
+        description="Authentic systems engineered by Harsh for autonomous incident response, AI fraud detection, computer vision, and secure full-stack software."
+      />
 
       {/* Filter Tabs */}
       <div className="project-filter-tabs">

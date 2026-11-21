@@ -1,12 +1,14 @@
 import React from 'react'
+import KineticHeading from './KineticHeading'
 
 const About = () => {
   return (
     <section id="about" className="section container">
-      <div className="section-header">
-        <span className="section-subtitle">Biography</span>
-        <h2 className="section-title">Who is <span className="gradient-text">Harsh?</span></h2>
-      </div>
+      <KineticHeading 
+        subtitle="Biography"
+        title="Who is"
+        highlight="Harsh?"
+      />
 
       <div className="about-centered-container">
         <div className="about-text-wrapper terminal-window scanline-container">

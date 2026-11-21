@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Mail, Send, MapPin, Phone, Github, Linkedin } from 'lucide-react'
+import KineticHeading from './KineticHeading'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -73,10 +74,11 @@ const Contact = () => {
 
   return (
     <section id="contact" className="section container">
-      <div className="section-header">
-        <span className="section-subtitle">Get In Touch</span>
-        <h2 className="section-title">Let's <span className="gradient-text">Connect</span></h2>
-      </div>
+      <KineticHeading 
+        subtitle="Get In Touch"
+        title="Let's"
+        highlight="Connect"
+      />
 
       <div className="contact-grid">
         <div className="contact-info">
