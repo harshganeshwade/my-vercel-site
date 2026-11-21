@@ -41,6 +41,14 @@ const About = () => {
 
             <div className="about-extra">
               <div className="extra-item">
+                <h5 className="cyber-label">/organizations</h5>
+                <p>
+                  <strong style={{ color: '#00fff9' }}>Maximus Infoware (India) Pvt. Ltd.</strong> (SOC Analyst),{' '}
+                  <strong style={{ color: 'var(--primary)' }}>UptoSkills</strong> (VAPT Intern),{' '}
+                  <strong style={{ color: '#fbff00' }}>Sunbeam Infotech</strong> (Cyber Security Engineer)
+                </p>
+              </div>
+              <div className="extra-item">
                 <h5 className="cyber-label">/interests</h5>
                 <p>Published Author (2 Books), Swimming, Playing Football, Threat Analysis</p>
               </div>

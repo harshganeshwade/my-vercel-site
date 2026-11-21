@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Briefcase, GraduationCap, Award, BookOpen, Eye, X, ArrowLeft, ShieldCheck, ExternalLink } from 'lucide-react'
+import { Briefcase, GraduationCap, Award, BookOpen, Eye, X, ArrowLeft, ShieldCheck, ExternalLink, Building2 } from 'lucide-react'
 import KineticHeading from './KineticHeading'
 import adobeCertImg from '../assets/certificates/adobe_hackathon.png'
 import forageCertImg from '../assets/certificates/commonwealth_cybersecurity.png'
@@ -216,7 +216,11 @@ const Experience = () => {
                             <div className="entry-id" style={{ color: '#00ff88' }}>LOG_ID: EXP_001 [ACTIVE]</div>
                             <span className="timeline-date">Nov 2026 - Present</span>
                             <h4>Security Operations Center (SOC) Analyst</h4>
-                            <h5>Maximus Infoware (India) Pvt. Ltd.</h5>
+                            <h5 className="highlighted-company current-company">
+                                <Building2 size={15} className="company-icon" />
+                                <span className="company-name">Maximus Infoware (India) Pvt. Ltd.</span>
+                                <span className="company-badge current">CURRENT ROLE</span>
+                            </h5>
                             <ul className="timeline-details">
                                 <li>Monitoring real-time security events, SIEM alerts, and perimeter traffic across payment & banking infrastructure</li>
                                 <li>Conducting alert triage, incident response, and root-cause analysis on suspicious behavior and potential threats</li>
@@ -238,7 +242,12 @@ const Experience = () => {
                             <div className="entry-id">LOG_ID: EXP_002</div>
                             <span className="timeline-date">Aug 2026 - Present</span>
                             <h4>VAPT Intern</h4>
-                            <h5>UptoSkills, Delhi, India</h5>
+                            <h5 className="highlighted-company">
+                                <Building2 size={15} className="company-icon" />
+                                <span className="company-name">UptoSkills</span>
+                                <span className="company-meta">, Delhi, India</span>
+                                <span className="company-badge vapt">INTERNSHIP</span>
+                            </h5>
                             <ul className="timeline-details">
                                 <li>Conducting Vulnerability Assessment and Penetration Testing (VAPT)</li>
                                 <li>Identifying system vulnerabilities, evaluating risk exposure, and formulating mitigation strategies</li>
@@ -248,7 +257,12 @@ const Experience = () => {
                             <div className="entry-id">LOG_ID: EXP_003</div>
                             <span className="timeline-date">Dec 2025 - Jan 2026</span>
                             <h4>Cyber Security Engineer</h4>
-                            <h5>Sunbeam Infotech, Pune, India</h5>
+                            <h5 className="highlighted-company">
+                                <Building2 size={15} className="company-icon" />
+                                <span className="company-name">Sunbeam Infotech</span>
+                                <span className="company-meta">, Pune, India</span>
+                                <span className="company-badge security">INTERNSHIP</span>
+                            </h5>
                             <ul className="timeline-details">
                                 <li>Worked on Intrusion Detection & Prevention Systems (IDS/IPS)</li>
                                 <li>Monitored and analyzed network traffic for suspicious activity and threats</li>
@@ -723,6 +737,98 @@ const Experience = () => {
                     color: #888;
                     font-weight: 500;
                     margin-bottom: 1rem;
+                }
+
+                .timeline-item h5.highlighted-company {
+                    display: inline-flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    gap: 8px;
+                    font-size: 0.95rem;
+                    color: #e2e8f0;
+                    margin-bottom: 1.1rem;
+                    padding: 0.45rem 0.85rem;
+                    background: rgba(0, 229, 163, 0.05);
+                    border: 1px solid rgba(0, 229, 163, 0.25);
+                    border-left: 3px solid var(--primary);
+                    border-radius: 4px;
+                    box-shadow: 0 0 15px rgba(0, 229, 163, 0.08);
+                    transition: all 0.25s ease;
+                }
+
+                .timeline-item h5.highlighted-company:hover {
+                    background: rgba(0, 229, 163, 0.1);
+                    border-color: var(--primary);
+                    box-shadow: 0 0 20px rgba(0, 229, 163, 0.2);
+                    transform: translateX(3px);
+                }
+
+                .timeline-item h5.highlighted-company.current-company {
+                    background: rgba(0, 255, 249, 0.06);
+                    border: 1px solid rgba(0, 255, 249, 0.35);
+                    border-left: 3px solid #00fff9;
+                    box-shadow: 0 0 18px rgba(0, 255, 249, 0.15);
+                }
+
+                .timeline-item h5.highlighted-company.current-company:hover {
+                    background: rgba(0, 255, 249, 0.12);
+                    border-color: #00fff9;
+                    box-shadow: 0 0 25px rgba(0, 255, 249, 0.3);
+                }
+
+                .timeline-item h5.highlighted-company .company-icon {
+                    color: var(--primary);
+                    flex-shrink: 0;
+                }
+
+                .timeline-item h5.highlighted-company.current-company .company-icon {
+                    color: #00fff9;
+                }
+
+                .timeline-item h5.highlighted-company .company-name {
+                    font-weight: 800;
+                    font-size: 0.98rem;
+                    color: #ffffff;
+                    letter-spacing: 0.5px;
+                }
+
+                .timeline-item h5.highlighted-company.current-company .company-name {
+                    color: #00fff9;
+                    text-shadow: 0 0 10px rgba(0, 255, 249, 0.4);
+                }
+
+                .timeline-item h5.highlighted-company .company-meta {
+                    color: #94a3b8;
+                    font-size: 0.82rem;
+                    font-weight: 500;
+                }
+
+                .timeline-item h5.highlighted-company .company-badge {
+                    font-size: 0.62rem;
+                    font-family: var(--font-heading);
+                    font-weight: 700;
+                    letter-spacing: 1px;
+                    padding: 2px 7px;
+                    border-radius: 12px;
+                }
+
+                .timeline-item h5.highlighted-company .company-badge.current {
+                    background: rgba(0, 255, 136, 0.15);
+                    border: 1px solid #00ff88;
+                    color: #00ff88;
+                    box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+                }
+
+                .timeline-item h5.highlighted-company .company-badge.vapt {
+                    background: rgba(0, 229, 163, 0.12);
+                    border: 1px solid var(--primary);
+                    color: var(--primary);
+                }
+
+                .timeline-item h5.highlighted-company .company-badge.security {
+                    background: rgba(251, 255, 0, 0.12);
+                    border: 1px solid rgba(251, 255, 0, 0.4);
+                    color: #fbff00;
                 }
 
                 .timeline-details {
