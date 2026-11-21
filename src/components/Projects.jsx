@@ -10,7 +10,7 @@ const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('ALL')
   const [selectedProject, setSelectedProject] = useState(null)
 
-  // ESC key listener to close modal
+  // ESC key listener to close modal and lock background scroll
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
@@ -20,6 +20,17 @@ const Projects = () => {
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [])
+
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [selectedProject])
 
   const projects = [
     {

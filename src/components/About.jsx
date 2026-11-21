@@ -31,9 +31,9 @@ const About = () => {
 
             <div className="about-stats cyber-grid">
               <div className="stat-card">
-                <span className="stat-num" style={{ color: '#00fff9' }}>2</span>
-                <span className="stat-label">Internships / Roles</span>
-                <div className="stat-bar"><div className="stat-fill" style={{ width: '50%', background: '#00fff9', boxShadow: '0 0 10px #00fff9' }}></div></div>
+                <span className="stat-num" style={{ color: '#00fff9' }}>3</span>
+                <span className="stat-label">Professional Roles</span>
+                <div className="stat-bar"><div className="stat-fill" style={{ width: '75%', background: '#00fff9', boxShadow: '0 0 10px #00fff9' }}></div></div>
               </div>
               <div className="stat-card">
                 <span className="stat-num" style={{ color: '#fbff00' }}>14+</span>

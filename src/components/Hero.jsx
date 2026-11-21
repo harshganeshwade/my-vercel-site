@@ -103,9 +103,9 @@ const Hero = () => {
 
           {/* Status Tags */}
           <div className="hero-status-tags">
+            <span className="hero-status-tag" style={{ borderColor: 'rgba(0, 229, 163, 0.4)', color: '#00fff9' }}>🛡️ SOC Analyst @ Maximus Infoware</span>
             <span className="hero-status-tag">📍 Sangli, MH</span>
             <span className="hero-status-tag">⚡ VAPT & Purple Teaming</span>
-            <span className="hero-status-tag">🛡️ SOC & SIEM</span>
             <span className="hero-status-tag">📖 Published Author (2 Books)</span>
           </div>
 

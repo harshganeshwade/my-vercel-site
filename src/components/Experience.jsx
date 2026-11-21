@@ -20,7 +20,7 @@ import bookPublishingCertImg from '../assets/certificates/book_publishing_cert.p
 const Experience = () => {
     const [selectedCert, setSelectedCert] = useState(null)
 
-    // Handle ESC key to close certificate modal
+    // Handle ESC key to close certificate modal and lock background scroll
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === 'Escape') {
@@ -30,6 +30,17 @@ const Experience = () => {
         window.addEventListener('keydown', handleKeyDown)
         return () => window.removeEventListener('keydown', handleKeyDown)
     }, [])
+
+    useEffect(() => {
+        if (selectedCert) {
+            document.body.style.overflow = 'hidden'
+        } else {
+            document.body.style.overflow = ''
+        }
+        return () => {
+            document.body.style.overflow = ''
+        }
+    }, [selectedCert])
 
     const [activeCertCategory, setActiveCertCategory] = useState('ALL')
 
@@ -200,7 +211,29 @@ const Experience = () => {
                     <h3 className="column-title"><Briefcase size={18} /> WORK_HISTORY</h3>
                     <div className="timeline">
                         <div className="timeline-item cyber-card scanline-container">
-                            <div className="entry-id">LOG_ID: EXP_001</div>
+                            <div className="entry-id" style={{ color: '#00ff88' }}>LOG_ID: EXP_001 [ACTIVE]</div>
+                            <span className="timeline-date">Nov 2026 - Present</span>
+                            <h4>Security Operations Center (SOC) Analyst</h4>
+                            <h5>Maximus Infoware (India) Pvt. Ltd.</h5>
+                            <ul className="timeline-details">
+                                <li>Monitoring real-time security events, SIEM alerts, and perimeter traffic across payment & banking infrastructure</li>
+                                <li>Conducting alert triage, incident response, and root-cause analysis on suspicious behavior and potential threats</li>
+                                <li>Collaborating with security engineers to tune detection rules and harden defensive security postures</li>
+                            </ul>
+                            <div style={{ marginTop: '0.8rem' }}>
+                                <a 
+                                    href="https://lnkd.in/p/d2XDxi_t" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="ledger-view-btn"
+                                    style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                                >
+                                    <ExternalLink size={13} /> VIEW ANNOUNCEMENT (LINKEDIN)
+                                </a>
+                            </div>
+                        </div>
+                        <div className="timeline-item cyber-card scanline-container">
+                            <div className="entry-id">LOG_ID: EXP_002</div>
                             <span className="timeline-date">Aug 2026 - Present</span>
                             <h4>VAPT Intern</h4>
                             <h5>UptoSkills, Delhi, India</h5>
@@ -210,7 +243,7 @@ const Experience = () => {
                             </ul>
                         </div>
                         <div className="timeline-item cyber-card scanline-container">
-                            <div className="entry-id">LOG_ID: EXP_002</div>
+                            <div className="entry-id">LOG_ID: EXP_003</div>
                             <span className="timeline-date">Dec 2025 - Jan 2026</span>
                             <h4>Cyber Security Engineer</h4>
                             <h5>Sunbeam Infotech, Pune, India</h5>
