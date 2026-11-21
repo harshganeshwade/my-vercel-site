@@ -83,10 +83,10 @@ const CyberCLI = () => {
     } else if (cmd === 'whoami') {
       newLogs.push(
         { type: 'output', text: 'OPERATOR: Harsh Ganeshwade' },
-        { type: 'output', text: 'ROLE: SOC Analyst @ Maximus Infoware | Cybersecurity & VAPT Engineer | Author' },
+        { type: 'output', text: 'ROLE: SOC Analyst @ Maximus Infoware (Thane, MH) | Cybersecurity & VAPT Engineer | Author' },
         { type: 'output', text: 'EDUCATION: B.Tech Computer Science & Engineering' },
         { type: 'output', text: 'FOCUS: SOC Analysis, Incident Response, Defensive Hardening, Offensive Red Team VAPT' },
-        { type: 'output', text: 'EXPERIENCE: 3 Professional Roles (Maximus Infoware, UptoSkills, Sunbeam Infotech)' },
+        { type: 'output', text: 'EXPERIENCE: 3 Professional Roles (Maximus Infoware [Thane, MH], UptoSkills [Delhi], Sunbeam Infotech [Pune])' },
         { type: 'output', text: 'PROJECTS: 14+ Authentic Systems Developed' },
         { type: 'output', text: 'CREDENTIALS: 16+ Industry Accreditations' },
         { type: 'output', text: 'PUBLICATIONS: 2 Published Works (Amazon & Global Distributors)' }

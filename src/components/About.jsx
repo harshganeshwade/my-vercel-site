@@ -43,7 +43,7 @@ const About = () => {
               <div className="extra-item">
                 <h5 className="cyber-label">/organizations</h5>
                 <p>
-                  <strong style={{ color: '#00fff9' }}>Maximus Infoware (India) Pvt. Ltd.</strong> (SOC Analyst),{' '}
+                  <strong style={{ color: '#00fff9' }}>Maximus Infoware (India) Pvt. Ltd.</strong> (SOC Analyst, Thane, Maharashtra),{' '}
                   <strong style={{ color: 'var(--primary)' }}>UptoSkills</strong> (VAPT Intern),{' '}
                   <strong style={{ color: '#fbff00' }}>Sunbeam Infotech</strong> (Cyber Security Engineer)
                 </p>

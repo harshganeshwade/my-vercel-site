@@ -219,6 +219,7 @@ const Experience = () => {
                             <h5 className="highlighted-company current-company">
                                 <Building2 size={15} className="company-icon" />
                                 <span className="company-name">Maximus Infoware (India) Pvt. Ltd.</span>
+                                <span className="company-meta">, Thane, Maharashtra</span>
                                 <span className="company-badge current">CURRENT ROLE</span>
                             </h5>
                             <ul className="timeline-details">
