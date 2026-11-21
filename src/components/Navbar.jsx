@@ -10,7 +10,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40)
 
-      const sections = ['about', 'experience', 'skills', 'projects', 'publications', 'contact']
+      const sections = ['about', 'experience', 'detection-lab', 'skills', 'projects', 'publications', 'contact']
       const scrollPosition = window.scrollY + 200
 
       for (const sectionId of sections) {
@@ -36,10 +36,11 @@ const Navbar = () => {
   const navItems = [
     { label: '//01. ABOUT', href: '#about', id: 'about' },
     { label: '//02. EXPERIENCE', href: '#experience', id: 'experience' },
-    { label: '//03. SKILLS', href: '#skills', id: 'skills' },
-    { label: '//04. PROJECTS', href: '#projects', id: 'projects' },
-    { label: '//05. BOOKS', href: '#publications', id: 'publications' },
-    { label: '//06. CONTACT', href: '#contact', id: 'contact' }
+    { label: '//03. SOC LAB', href: '#detection-lab', id: 'detection-lab' },
+    { label: '//04. SKILLS', href: '#skills', id: 'skills' },
+    { label: '//05. PROJECTS', href: '#projects', id: 'projects' },
+    { label: '//06. BOOKS', href: '#publications', id: 'publications' },
+    { label: '//07. CONTACT', href: '#contact', id: 'contact' }
   ]
 
   return (
@@ -214,7 +215,7 @@ const Navbar = () => {
 
         .desktop-nav {
           display: flex;
-          gap: 1.8rem;
+          gap: 1.15rem;
           align-items: center;
         }
 
