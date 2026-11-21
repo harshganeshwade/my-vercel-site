@@ -13,6 +13,7 @@ import CyberCLI from './components/CyberCLI'
 import CustomCursor from './components/CustomCursor'
 import SmoothScroll from './components/SmoothScroll'
 import EntryPreloader from './components/EntryPreloader'
+import SpotlightTracker from './components/SpotlightTracker'
 import './PrintStyles.css'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       <div className="app">
         <EntryPreloader />
         <CustomCursor />
+        <SpotlightTracker />
         <MatrixBackground />
         <div className="bg-blobs">
           <div className="blob blob-1"></div>

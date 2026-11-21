@@ -286,14 +286,18 @@ const Experience = () => {
             </div>
 
             {/* Streamlined Cyber Credential Ledger */}
-            <div className="certifications-section">
+            <div className="certifications-section" id="certifications">
+                <KineticHeading 
+                    subtitle="Verified Ledger"
+                    title="Cybersecurity"
+                    highlight="Certifications"
+                    description="16 industry-accredited credentials across defensive security, VAPT, incident response, and privacy compliance."
+                />
+
                 <div className="certs-section-header">
-                    <div>
-                        <span className="section-subtitle" style={{ marginBottom: '0.4rem', fontSize: '0.7rem' }}>VERIFIED_LEDGER</span>
-                        <h3 className="certs-main-title">
-                            <Award size={20} /> CERT_DB // CREDENTIAL REGISTRY
-                        </h3>
-                    </div>
+                    <span className="certs-sub-tag">
+                        <Award size={16} /> CERT_DB // CREDENTIAL REGISTRY
+                    </span>
                     <span className="cert-count-pill">{filteredCerts.length} OF {certList.length} CERTIFICATIONS</span>
                 </div>
 
@@ -443,20 +447,20 @@ const Experience = () => {
                     justify-content: space-between;
                     flex-wrap: wrap;
                     gap: 1rem;
-                    margin-bottom: 2rem;
+                    margin-bottom: 1.5rem;
+                    padding-bottom: 0.8rem;
+                    border-bottom: 1px solid rgba(0, 229, 163, 0.1);
                 }
 
-                .certs-main-title {
-                    display: flex;
+                .certs-sub-tag {
+                    display: inline-flex;
                     align-items: center;
-                    gap: 0.8rem;
+                    gap: 0.5rem;
                     color: var(--primary);
-                    font-size: 1.2rem;
+                    font-size: 0.82rem;
                     font-family: var(--font-heading);
-                    border-left: 3px solid var(--primary);
-                    padding-left: 1rem;
-                    letter-spacing: 2px;
-                    margin: 0;
+                    letter-spacing: 1.5px;
+                    text-transform: uppercase;
                 }
 
                 .cert-count-pill {

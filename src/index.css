@@ -27,6 +27,61 @@
   backdrop-filter: blur(10px);
 }
 
+/* ==========================================================================
+   Cursor-Tracking Spotlight Borders (Webflow / Linear Style)
+   ========================================================================== */
+.cyber-card,
+.glass-card,
+.stat-card,
+.timeline-item,
+.cert-ledger-row,
+.skill-card,
+.project-card,
+.book-card-3d {
+  --mouse-x: -500px;
+  --mouse-y: -500px;
+  position: relative;
+}
+
+.cyber-card::before,
+.glass-card::before,
+.stat-card::before,
+.timeline-item::before,
+.cert-ledger-row::before,
+.skill-card::before,
+.project-card::before,
+.book-card-3d::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    380px circle at var(--mouse-x) var(--mouse-y),
+    rgba(0, 229, 163, 0.75),
+    rgba(0, 255, 249, 0.3) 35%,
+    transparent 70%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.cyber-card:hover::before,
+.glass-card:hover::before,
+.stat-card:hover::before,
+.timeline-item:hover::before,
+.cert-ledger-row:hover::before,
+.skill-card:hover::before,
+.project-card:hover::before,
+.book-card-3d:hover::before {
+  opacity: 1;
+}
+
 .terminal-window {
   background: rgba(0, 0, 0, 0.95);
   border: 1px solid var(--primary);
