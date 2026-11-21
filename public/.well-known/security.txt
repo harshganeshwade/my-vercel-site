@@ -1,0 +1,10 @@
+# Harsh Ganeshwade - Security Policy
+# RFC 9116 Compliant
+Contact: mailto:harshganeshwade7@gmail.com
+Contact: https://www.linkedin.com/in/harshganeshwade/
+Canonical: https://harrygrint.vercel.app/.well-known/security.txt
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en, hi, mr
+Policy: https://harrygrint.vercel.app/
+Acknowledgments: https://harrygrint.vercel.app/#experience
+Encryption: https://harrygrint.vercel.app/#contact

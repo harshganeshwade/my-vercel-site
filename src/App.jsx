@@ -1,5 +1,5 @@
 import React from 'react'
-import { Github, Linkedin } from 'lucide-react'
+import { Github, Linkedin, Shield, Key } from 'lucide-react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -48,6 +48,9 @@ function App() {
           <div className="footer-status">
             <span className="pulse-dot"></span>
             <span className="status-text">NODE STATUS: <strong>ONLINE</strong> // SEC_LEVEL: <strong>ALPHA</strong></span>
+            <a href="/.well-known/security.txt" target="_blank" rel="noopener noreferrer" className="footer-sec-badge" title="View RFC 9116 Security Policy">
+              <Shield size={11} /> security.txt
+            </a>
           </div>
 
           <button 
@@ -79,6 +82,12 @@ function App() {
 
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} Harsh Ganeshwade. Encrypted & Distributed via Cloud.</p>
+          <div className="footer-badges">
+            <span className="footer-pgp" title="Click to copy PGP Fingerprint" onClick={() => { navigator.clipboard?.writeText('4A8F C632 9E71 BD84 72E0 F019 82CB 34A1'); }}>
+              <Key size={11} /> PGP: 4A8F C632 9E71 BD84
+            </span>
+            <span className="footer-cli-hint">PRESS <code>Ctrl+K</code> OR <code>~</code> FOR CYBER SHELL</span>
+          </div>
         </div>
       </footer>
 
@@ -199,6 +208,61 @@ function App() {
           text-align: center;
           border-top: 1px dashed rgba(255, 255, 255, 0.05);
           padding-top: 1.5rem;
+        }
+
+        .footer-sec-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 4px;
+          background: rgba(0, 229, 163, 0.08);
+          border: 1px solid var(--glass-border);
+          color: var(--primary);
+          font-size: 0.7rem;
+          padding: 0.15rem 0.5rem;
+          border-radius: 3px;
+          margin-left: 0.8rem;
+          text-decoration: none;
+          transition: all 0.2s ease;
+        }
+
+        .footer-sec-badge:hover {
+          background: var(--primary);
+          color: #000;
+          box-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .footer-badges {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 1.5rem;
+          margin-top: 0.6rem;
+          font-size: 0.72rem;
+          font-family: var(--font-heading);
+          color: var(--text-secondary);
+          opacity: 0.8;
+        }
+
+        .footer-pgp {
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          border-bottom: 1px dashed var(--glass-border);
+          padding-bottom: 1px;
+          transition: color 0.2s ease;
+        }
+
+        .footer-pgp:hover {
+          color: var(--primary);
+        }
+
+        .footer-cli-hint code {
+          color: var(--primary);
+          background: rgba(0, 229, 163, 0.08);
+          padding: 1px 4px;
+          border-radius: 2px;
         }
 
         .footer-bottom p {
