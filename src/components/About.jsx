@@ -1,5 +1,4 @@
 import React from 'react'
-import profileImg from '../assets/profile.jpg'
 
 const About = () => {
   return (
@@ -9,16 +8,7 @@ const About = () => {
         <h2 className="section-title">Who is <span className="gradient-text">Harsh?</span></h2>
       </div>
 
-      <div className="about-grid">
-        <div className="about-image-container">
-          <div className="target-lock">
-            <span></span><span></span><span></span><span></span>
-          </div>
-          <div className="about-image glass-card">
-            <img src={profileImg} alt="Harsh Ganeshwade" className="profile-img" />
-          </div>
-        </div>
-
+      <div className="about-centered-container">
         <div className="about-text-wrapper terminal-window scanline-container">
           <div className="terminal-header-text">harsh@cyber-os:~/bio$ cat identity.txt</div>
           <div className="about-text">
@@ -83,62 +73,16 @@ const About = () => {
           font-size: clamp(2rem, 5vw, 3rem);
         }
 
-        .about-grid {
-          display: grid;
-          grid-template-columns: 1fr 1.8fr;
-          gap: 4rem;
-          align-items: center;
-        }
-
-        .about-image-container {
-          position: relative;
-          padding: 20px;
-          max-width: 360px;
+        .about-centered-container {
+          max-width: 860px;
           margin: 0 auto;
-        }
-
-        .target-lock span {
-          position: absolute;
-          width: 30px;
-          height: 30px;
-          border-color: var(--primary);
-          border-style: solid;
-          z-index: 10;
-        }
-
-        .target-lock span:nth-child(1) { top: 0; left: 0; border-width: 2px 0 0 2px; }
-        .target-lock span:nth-child(2) { top: 0; right: 0; border-width: 2px 2px 0 0; }
-        .target-lock span:nth-child(3) { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
-        .target-lock span:nth-child(4) { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
-
-        .about-image {
-          aspect-ratio: 1;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          border-radius: 6px;
-          border: 1px solid var(--primary-glow);
-          box-shadow: 0 0 25px rgba(0, 229, 163, 0.15);
-        }
-
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 15%;
-            filter: grayscale(0.8) contrast(1.15) brightness(0.9);
-            transition: var(--transition);
-        }
-
-        .about-image:hover .profile-img {
-          filter: grayscale(0) contrast(1.05) brightness(1);
-          transform: scale(1.03);
+          width: 100%;
         }
 
         .about-text-wrapper {
-          padding: 2rem;
-          padding-top: 3rem;
+          padding: 2.2rem 2.5rem;
+          padding-top: 3.2rem;
+          width: 100%;
         }
 
         .terminal-header-text {
@@ -208,15 +152,10 @@ const About = () => {
           letter-spacing: 1px;
         }
 
-                @media (max-width: 968px) {
-          .about-grid {
-            grid-template-columns: 1fr;
-            gap: 2rem;
-          }
-          
-          .about-image-container {
-            max-width: 240px;
-            margin: 0 auto;
+        @media (max-width: 768px) {
+          .about-text-wrapper {
+            padding: 1.5rem;
+            padding-top: 2.5rem;
           }
         }
 
